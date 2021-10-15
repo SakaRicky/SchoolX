@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-
 import { Typography, Button } from '@material-ui/core';
 
 const Home: NextPage = () => {
