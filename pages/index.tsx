@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '/Users/rickysaka/Desktop/Work_Desk/SchoolX/styles/Home.module.scss';
+import styles from '/styles/Home.module.scss';
 import { theme } from '../theme';
 import { ThemeProvider } from '@material-ui/styles';
 import { Typography, Button } from '@material-ui/core';
