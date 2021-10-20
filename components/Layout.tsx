@@ -94,7 +94,7 @@ const Layout = ({children}: LayoutProps) => {
         },
         {
             text: "Marks",
-            path: '/marks',
+            path: '/marks_entry',
             icon: <FormatListNumberedIcon />
         },
         {
