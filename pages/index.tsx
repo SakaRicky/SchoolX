@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           </Head>
 
           <main className={styles.main}>
-            <Typography variant="h1" color="primary">
+            <Typography variant="h6" color="primary">
               Welcome to SchoolX App
             </Typography>
             <Button variant="contained" color="secondary">Create</Button>

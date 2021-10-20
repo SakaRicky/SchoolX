@@ -9,7 +9,7 @@ const themeOptions: ThemeOptions = {
         main: '#004d40',
       },
       secondary: {
-        main: '#c3a51f',
+        main: '#f0e6bd',
       },
       warning: {
         main: '#fb8c00',
