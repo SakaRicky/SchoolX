@@ -1,0 +1,60 @@
+{
+    "students": [
+        {
+            "given_name": "Saka Keugeu",
+            "family_name": "Ricky Clautaire",
+            "date_of_birth": "20/05/2020",
+            "gender": "male",
+            "class_name": "Form 1 B",
+            "class_code": "F1B",
+            "fathers_name": "ABC DEF",
+            "fathers_phone": "123456789",
+            "fathers_occupation": "Worker",
+            "mothers_name": "Ijk Lmn",
+            "mothers_phone": "987654321",
+            "mothers_occupation": "House Wife"
+        },
+        {
+            "given_name": "John",
+            "family_name": "Paul",
+            "date_of_birth": "20/05/2020",
+            "gender": "male",
+            "class_name": "Form 4 A",
+            "class_code": "F1B",
+            "fathers_name": "ABC DEF",
+            "fathers_phone": "123456789",
+            "fathers_occupation": "Worker",
+            "mothers_name": "Ijk Lmn",
+            "mothers_phone": "987654321",
+            "mothers_occupation": "House Wife"
+        },
+        {
+            "given_name": "Mary",
+            "family_name": "Christine",
+            "date_of_birth": "20/05/2020",
+            "gender": "female",
+            "class_name": "Form 3 B",
+            "class_code": "F1B",
+            "fathers_name": "ABC DEF",
+            "fathers_phone": "123456789",
+            "fathers_occupation": "Worker",
+            "mothers_name": "Ijk Lmn",
+            "mothers_phone": "987654321",
+            "mothers_occupation": "House Wife"
+        },
+        {
+            "given_name": "Peter",
+            "family_name": "Roman",
+            "date_of_birth": "20/05/2020",
+            "gender": "female",
+            "class_name": "Form 3 B",
+            "class_code": "F1B",
+            "fathers_name": "ABC DEF",
+            "fathers_phone": "123456789",
+            "fathers_occupation": "Worker",
+            "mothers_name": "Ijk Lmn",
+            "mothers_phone": "987654321",
+            "mothers_occupation": "House Wife"
+        }
+    ]
+}
