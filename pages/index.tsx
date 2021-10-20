@@ -2,15 +2,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '/styles/Home.module.scss';
-import { theme } from '../theme';
-import { ThemeProvider } from '@material-ui/styles';
+
 import { Typography, Button } from '@material-ui/core';
-import Layout from '../components/Layout';
 
 const Home: NextPage = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
+    
         <div className={styles.container}>
           <Head>
             <title>SchoolX | Home</title>
@@ -31,10 +28,7 @@ const Home: NextPage = () => {
               Copyright &copy; 2021
             </Typography>
           </footer>
-        </div>
-      </Layout>
-      
-    </ThemeProvider>
+        </div>      
   )
 }
 
