@@ -75,6 +75,26 @@
       "id": "4uWzUJI"
     }
   ],
+  "teachers": [
+    {
+      "id": "1",
+      "first_name": "Saka",
+      "last_name": "Ricky",
+      "date_of_birth": "12/12/2020",
+      "gender": "male",
+      "email": "saka@ricky.com",
+      "phone": "12345678"
+    },
+    {
+      "first_name": "John",
+      "last_name": "Paul",
+      "date_of_birth": "2021-10-03",
+      "gender": "male",
+      "email": "john@paul.com",
+      "phone": "12345678",
+      "id": "CdsV40V"
+    }
+  ],
   "classes": {
     "F1A": "Form 1 A",
     "F1B": "Form 1 B",
