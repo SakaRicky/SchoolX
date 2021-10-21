@@ -6,8 +6,7 @@ const baseURL = 'http://localhost:5000/';
 
 const saveStudent = async (newStudent: NewStudent) => {
     const res = await axios.post(`${baseURL}students`, newStudent)
-    console.log(res);
-    
+    return res.data;
 }
 
 const studentServices = {

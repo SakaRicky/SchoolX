@@ -1,23 +1,18 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import AddTeacherForm from "components/AddTeacherForm";
-import { NewStudent } from "types";
+import { NewTeacher } from "types";
+import teacherServices from "services/teacher";
 
 const TeacherRegistration = () => {
 
-    const handleSubmit = (values: NewStudent) => {
-        console.log(values);
-        
-    }
-
-    const handleCancel = () => {
-        console.log("Cancel");
-        
+    const handleSubmit = async (newTeacher: NewTeacher) => {
+        const res = await teacherServices.saveTeacher(newTeacher);        
     }
 
     return (
         <div>
-            <AddTeacherForm handleSubmit={handleSubmit} handleCancel={handleCancel}/>
+            <AddTeacherForm handleSubmit={handleSubmit} />
         </div>
     );
 }

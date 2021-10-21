@@ -21,7 +21,7 @@ export interface Teacher {
     date_of_birth: string,
     gender: string,
     email?: string,
-    phone: number
+    phone: number | string
 }
 
 export type NewStudent = Omit<Student, 'id' | 'class_code'>;
