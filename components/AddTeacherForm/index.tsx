@@ -1,3 +1,4 @@
+import React from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -59,7 +60,7 @@ const FORM_VALIDATION = yup.object().shape({
     phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-const AddTeacherForm = ({handleSubmit}: AddTeacherProps) => {
+const AddTeacherForm: React.FC<AddTeacherProps> = ({handleSubmit}: AddTeacherProps) => {
     const classes = useStyles();
   return (
       <Grid container className={classes.root}>
