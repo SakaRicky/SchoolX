@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import React from "react";
+>>>>>>> feat: added student and teacher registration forms, added student services
 import { Button } from "@material-ui/core";
 import { useFormikContext } from "formik";
 
