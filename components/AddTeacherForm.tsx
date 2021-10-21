@@ -7,19 +7,16 @@ import {
     Grid,
     Typography
 } from "@material-ui/core";
-import { NewStudent, NewTeacher } from 'types';
+import { NewTeacher } from 'types';
 import { makeStyles } from '@material-ui/styles';
 import TextField from 'components/FormUi/TextFields';
-import Select from 'components/FormUi/Select';
 import DatePicker from 'components/FormUi/DatePicker';
 import Radio from 'components/FormUi/Radio';
 import Button from 'components/FormUi/Button';
-import schoolClasses from 'data/classes.json';
 
 
-interface AddStudentProps {
-    handleSubmit: (values: NewStudent) => void,
-    handleCancel: () => void,
+interface AddTeacherProps {
+    handleSubmit: (values: NewTeacher) => void,
 }
 
 const useStyles = makeStyles((theme: Theme) => {
@@ -51,7 +48,7 @@ const INITIAL_FORM_STATE: NewTeacher = {
     date_of_birth: "",
     gender: "",
     email: "",
-    phone: 0
+    phone: ""
 }
 
 const FORM_VALIDATION = yup.object().shape({
@@ -63,7 +60,7 @@ const FORM_VALIDATION = yup.object().shape({
     phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-const AddTeacherForm: React.FC<AddStudentProps> = ({handleSubmit, handleCancel}: AddStudentProps) => {
+const AddTeacherForm: React.FC<AddTeacherProps> = ({handleSubmit}: AddTeacherProps) => {
     const classes = useStyles();
   return (
       <Grid container className={classes.root}>
@@ -80,8 +77,7 @@ const AddTeacherForm: React.FC<AddStudentProps> = ({handleSubmit, handleCancel}:
                         }}
                         validationSchema={FORM_VALIDATION}
                         onSubmit= {values => {
-                            console.log(values);
-                            
+                            handleSubmit(values);
                         }}
                     >
                         <Form>
@@ -135,8 +131,8 @@ const AddTeacherForm: React.FC<AddStudentProps> = ({handleSubmit, handleCancel}:
                                     Submit
                                 </Button>
 
-                                <Button color="secondary">
-                                    Submit
+                                <Button cancel color="secondary">
+                                    Cancel
                                 </Button>
                             </div>
 
