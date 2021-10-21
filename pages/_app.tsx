@@ -1,4 +1,4 @@
-import '/Users/rickysaka/Desktop/Work_Desk/SchoolX/styles/globals.scss'
+import '/styles/globals.scss'
 import { FC } from 'react';
 import type { AppProps } from 'next/app';
 
