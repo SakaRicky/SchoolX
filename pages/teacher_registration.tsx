@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import AddTeacherForm from "components/AddTeacherForm";
 import { NewTeacher } from "types";
 import teacherServices from "services/teacher";

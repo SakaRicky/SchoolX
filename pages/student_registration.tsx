@@ -1,6 +1,5 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
-import AddStudentForm from 'components/AddStudentForm';
+import AddStudentForm from 'components/AddStudenForm';
 import { NewStudent } from "types";
 import studentServices from "services/student";
 
