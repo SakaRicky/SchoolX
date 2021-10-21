@@ -1,12 +1,23 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
+import AddTeacherForm from "components/AddTeacherForm";
+import { NewStudent } from "types";
 
 const TeacherRegistration = () => {
+
+    const handleSubmit = (values: NewStudent) => {
+        console.log(values);
+        
+    }
+
+    const handleCancel = () => {
+        console.log("Cancel");
+        
+    }
+
     return (
         <div>
-            <Typography variant="h6">
-                Teacher Registration
-            </Typography>
+            <AddTeacherForm handleSubmit={handleSubmit} handleCancel={handleCancel}/>
         </div>
     );
 }
