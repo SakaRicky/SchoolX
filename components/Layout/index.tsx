@@ -90,7 +90,7 @@ const useStyles = makeStyles(theme => ({
       alignItems: "center",
       justifyContent: "center",
       marginTop: "auto",
-      backgroundColor: theme.palette.secondary.light,
+      backgroundColor: theme.palette.grayYellow.main,
       height: theme.spacing(10),
   },
   

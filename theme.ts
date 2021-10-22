@@ -1,6 +1,14 @@
 import { createTheme } from "@material-ui/core";
 import { ThemeOptions } from "@material-ui/core";
 
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+      grayYellow: Palette['primary'];
+  }
+  interface PaletteOptions {
+    grayYellow: PaletteOptions['primary'];
+  }
+}
 
 const themeOptions: ThemeOptions = {
     palette: {
@@ -9,12 +17,14 @@ const themeOptions: ThemeOptions = {
         main: '#004d40',
       },
       secondary: {
-        // light: "#e6e3d8",
         main: '#f0e6bd',
       },
       warning: {
         main: '#fb8c00',
       },
+      grayYellow: {
+        main: "#e6e3d8",
+      }
     },
     spacing: 8,
     props: {
