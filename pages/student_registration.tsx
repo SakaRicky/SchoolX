@@ -1,4 +1,3 @@
-import React from "react";
 import AddStudentForm from 'components/AddStudenForm';
 import { NewStudent } from "types";
 import studentServices from "services/student";

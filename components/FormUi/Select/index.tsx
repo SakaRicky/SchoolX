@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
+import * as React from 'react';
 import { TextField, MenuItem } from '@material-ui/core';
 import { useField, useFormikContext } from 'formik'
 

@@ -1,4 +1,3 @@
-import React from "react";
 import AddTeacherForm from "components/AddTeacherForm";
 import { NewTeacher } from "types";
 import teacherServices from "services/teacher";
