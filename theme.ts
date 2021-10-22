@@ -9,6 +9,7 @@ const themeOptions: ThemeOptions = {
         main: '#004d40',
       },
       secondary: {
+        // light: "#e6e3d8",
         main: '#f0e6bd',
       },
       warning: {

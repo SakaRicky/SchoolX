@@ -16,14 +16,7 @@ const Home: NextPage = () => {
             Welcome to SchoolX App
           </Typography>
           <Button variant="contained" color="secondary">Create</Button>
-
         </main>
-
-        <footer>
-          <Typography>
-            Copyright &copy; 2021
-          </Typography>
-        </footer>
       </div>      
   )
 }
