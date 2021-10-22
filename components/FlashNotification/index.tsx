@@ -1,6 +1,6 @@
 import { makeStyles, Snackbar } from "@material-ui/core";
 import { Alert, AlertTitle } from '@material-ui/lab';
-import { Notify, Color } from 'types';
+import { Notify } from 'types';
 
 interface FlashNotificationProps {
     notify: Notify

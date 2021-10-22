@@ -3,7 +3,7 @@ import AddTeacherForm from "components/AddTeacherForm";
 import { NewTeacher } from "types";
 import teacherServices from "services/teacher";
 import FlashNotification from "components/FlashNotification";
-import { Notify, Color } from 'types';
+import { Notify } from 'types';
 
 const TeacherRegistration = () => {
     const [notify, setNotify] = useState<Notify>({isOpen: false, message: '', type: undefined});
