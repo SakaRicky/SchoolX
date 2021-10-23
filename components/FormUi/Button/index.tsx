@@ -4,14 +4,15 @@ import { useFormikContext } from "formik";
 interface ButtonProps {
     children: React.ReactChild | React.ReactChildren;
     color: string,
-    cancel?: boolean
+    cancel?: boolean,
+    fullWidth?: boolean,
 }
 
-const ButtonWrapper = ({children, color, cancel}: ButtonProps) => {
+const ButtonWrapper = ({children, color, cancel, fullWidth}: ButtonProps) => {
 
     const { submitForm, resetForm } = useFormikContext();
 
-    const handleSubmit = () => {
+    const handleSubmit = () => {        
         submitForm()
     }
 
@@ -20,12 +21,11 @@ const ButtonWrapper = ({children, color, cancel}: ButtonProps) => {
     }
 
     const configButton: any = {
+        fullWidth,
         onClick: cancel ? handleCancel : handleSubmit,
         variant: 'contained',
-        color: color,
-        xs: 12,
-        md: 6
-    }
+        color: color
+    }    
 
     return (
         <Button {...configButton}  >

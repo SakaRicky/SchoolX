@@ -10,7 +10,7 @@ interface RadioProps {
     name: string,
 }
 
-const DatePickerWrapper = ({name}: RadioProps) => {
+const RadioWrapper = ({name}: RadioProps) => {
     
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
@@ -42,4 +42,4 @@ const DatePickerWrapper = ({name}: RadioProps) => {
     )
 }
 
-export default DatePickerWrapper;
+export default RadioWrapper;
