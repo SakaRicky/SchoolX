@@ -1,7 +1,7 @@
 import {useState} from "react";
 import AddTeacherForm from "components/AddTeacherForm";
 import { NewTeacher } from "types";
-import teacherServices from "services/teacher";
+import teacherServices from "services/user";
 import FlashNotification from "components/FlashNotification";
 import { Notify } from 'types';
 
