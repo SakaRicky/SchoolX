@@ -59,14 +59,6 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-<<<<<<< HEAD
-<<<<<<< HEAD
     styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()],
-=======
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
->>>>>>> feat: #4 added the layout appBar and sideNavbar
-=======
-    styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()],
->>>>>>> chore: removed unused react imports
   };
 };
