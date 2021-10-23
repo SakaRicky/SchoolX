@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import * as React from 'react';
 import { TextField, MenuItem } from '@material-ui/core';
 import { useField, useFormikContext } from 'formik'
@@ -8,7 +7,7 @@ interface SelectProps {
     options: { [code: string] : string }
     label: string
 }
-const SelectWrapper: FC<SelectProps> = ({name, options, label}: SelectProps) => {
+const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: SelectProps) => {
 
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();

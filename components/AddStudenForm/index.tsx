@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
