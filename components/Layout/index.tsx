@@ -61,8 +61,13 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth
   },
+  contentArea: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+    minWidth: `calc(100% - ${drawerWidth}px)`
+  },
   content: {
-    flexGrow: 1,
     padding: theme.spacing(3),
   },
   closeMenuButton: {
@@ -79,7 +84,16 @@ const useStyles = makeStyles(theme => ({
   },
   username: {
       marginRight: "5px"
-  }
+  },
+  footer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: "auto",
+      backgroundColor: theme.palette.grayYellow.main,
+      height: theme.spacing(10),
+  },
+  
 }), { name: 'MuiLayoutComponent' });
 
 
@@ -203,9 +217,16 @@ const Layout = ({children}: LayoutProps) => {
                     </Drawer>  
                 </Hidden>
             </nav>
-            <div>
+            <div className={classes.contentArea}>
                 <div className={classes.toolbar} />
-                {children}
+                <div className={classes.content}>
+                    {children}
+                </div>
+                <footer className={classes.footer}>
+                    <Typography>
+                        Copyright &copy; 2021
+                    </Typography>
+                </footer>
             </div>
       </div>
         

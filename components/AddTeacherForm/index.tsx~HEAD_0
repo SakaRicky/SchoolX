@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -7,18 +6,16 @@ import {
     Grid,
     Typography
 } from "@material-ui/core";
-import { NewStudent } from 'types';
+import { NewTeacher } from 'types';
 import { makeStyles } from '@material-ui/styles';
 import TextField from 'components/FormUi/TextFields';
-import Select from 'components/FormUi/Select';
 import DatePicker from 'components/FormUi/DatePicker';
 import Radio from 'components/FormUi/Radio';
 import Button from 'components/FormUi/Button';
-import schoolClasses from 'data/classes.json';
 
 
-interface AddStudentProps {
-    handleSubmit: (values: NewStudent) => void,
+interface AddTeacherProps {
+    handleSubmit: (values: NewTeacher) => void,
 }
 
 const useStyles = makeStyles((theme: Theme) => {
@@ -44,18 +41,13 @@ const useStyles = makeStyles((theme: Theme) => {
     }
 });
 
-const INITIAL_FORM_STATE: NewStudent = {
+const INITIAL_FORM_STATE: NewTeacher = {
     first_name: "",
     last_name: "",
     date_of_birth: "",
     gender: "",
-    class: "",
-    fathers_name: "",
-    fathers_phone: "",
-    fathers_occupation: "",
-    mothers_name: "",
-    mothers_phone: "",
-    mothers_occupation: ""
+    email: "",
+    phone: ""
 }
 
 const FORM_VALIDATION = yup.object().shape({
@@ -63,22 +55,17 @@ const FORM_VALIDATION = yup.object().shape({
     last_name: yup.string().required('Required'),
     date_of_birth: yup.date().required(),
     gender: yup.string().required("Please enter the gender"),
-    fathers_phone: yup.number().typeError("Please enter a valid phone number"),
-    mothers_phone: yup.number().typeError("Please enter a valid phone number"),
+    email: yup.string().email("Invalid email"),
+    phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+const AddTeacherForm = ({handleSubmit}: AddTeacherProps) => {
     const classes = useStyles();
-
-    const handleCancel = () => {
-
-    }
-    
   return (
       <Grid container className={classes.root}>
           <Container className={classes.title} maxWidth="md">
               <Typography variant="h5">
-                  Add New Student
+                  Add New Teacher
               </Typography>
           </Container>
             <Container maxWidth="md">
@@ -123,49 +110,18 @@ const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentPro
                                     />
                                 </Grid>
 
-                                <Grid item xs={12}>
-                                    <Select
-                                        name="class"
-                                        label="Class"
-                                        options={schoolClasses}
+                                <Grid item xs={12} md={6}>
+                                    <TextField 
+                                        name="email"
+                                        label="Email Address"
                                     />
                                 </Grid>
 
+                                
                                 <Grid item xs={12} md={6}>
                                     <TextField 
-                                        name="fathers_name"
-                                        label="Fathers Name"
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6}>
-                                    <TextField 
-                                        name="fathers_phone"
-                                        label="Fathers Pnone Number"
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField 
-                                        name="fathers_occupation"
-                                        label="Fathers Occupation"
-                                    />
-                                </Grid>
-
-                                <Grid item xs={12} md={6}>
-                                    <TextField 
-                                        name="mothers_name"
-                                        label="Mothers Name"
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6}>
-                                    <TextField 
-                                        name="mothers_occupation"
-                                        label="Mothers Occupation"
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6}>
-                                    <TextField 
-                                        name="mothers_phone"
-                                        label="Mothers Phone Number"
+                                        name="phone"
+                                        label="Phone Number"
                                     />
                                 </Grid>
                             </Grid>
@@ -191,4 +147,4 @@ const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentPro
   );
 }
 
-export default AddStudentForm;
+export default AddTeacherForm;
