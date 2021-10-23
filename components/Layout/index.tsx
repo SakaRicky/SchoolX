@@ -110,12 +110,12 @@ const Layout = ({children}: LayoutProps) => {
     const navCategories = [
         {
             text: "Dashboard",
-            path: '/',
+            path: '/dashboard',
             icon: <DashboardIcon />
         },
         {
             text: "Marks",
-            path: '/marks',
+            path: '/marks_entry',
             icon: <FormatListNumberedIcon />
         },
         {
