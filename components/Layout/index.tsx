@@ -98,9 +98,7 @@ const useStyles = makeStyles(theme => ({
 }), { name: 'MuiLayoutComponent' });
 
 const Layout = ({children}: LayoutProps) => {
-    const [state] = useStateValue();
-    console.log(state, 'layout');
-    
+    const [state] = useStateValue();    
 
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = React.useState(false);

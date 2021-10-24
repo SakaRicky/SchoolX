@@ -4,8 +4,6 @@ import { useStateValue, setUser } from "state";
 
 const Dashboard = () => {
     const [state, dispatch] = useStateValue()
-
-    console.log(state.user);
     
     useEffect(() => {
         dispatch(setUser({
