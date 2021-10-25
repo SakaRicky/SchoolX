@@ -51,3 +51,9 @@ export interface Notify {
     message: string | any,
     type: Color
 }
+
+export interface ClassListType {
+    id: string,
+    name: string,
+    students: Student[]
+}

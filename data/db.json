@@ -2,8 +2,8 @@
   "students": [
     {
       "id": "1",
-      "given_name": "Saka Keugeu",
-      "family_name": "Ricky Clautaire",
+      "first_name": "Saka Keugeu",
+      "last_name": "Ricky Clautaire",
       "date_of_birth": "20/05/2020",
       "gender": "male",
       "class_name": "Form 1 B",
@@ -17,8 +17,8 @@
     },
     {
       "id": "2",
-      "given_name": "John",
-      "family_name": "Paul",
+      "first_name": "John",
+      "last_name": "Paul",
       "date_of_birth": "20/05/2020",
       "gender": "male",
       "class_name": "Form 4 A",
@@ -32,8 +32,8 @@
     },
     {
       "id": "3",
-      "given_name": "Mary",
-      "family_name": "Christine",
+      "first_name": "Mary",
+      "last_name": "Christine",
       "date_of_birth": "20/05/2020",
       "gender": "female",
       "class_name": "Form 3 B",
@@ -47,8 +47,8 @@
     },
     {
       "id": "4",
-      "given_name": "Peter",
-      "family_name": "Roman",
+      "first_name": "Peter",
+      "last_name": "Roman",
       "date_of_birth": "20/05/2020",
       "gender": "female",
       "class_name": "Form 3 B",
@@ -229,25 +229,432 @@
     }
   ],
   "classes": {
-    "F1A": "Form 1 A",
-    "F1B": "Form 1 B",
-    "F1C": "Form 1 C",
-    "F1D": "Form 1 D",
-    "F2A": "Form 2 A",
-    "F2B": "Form 2 B",
-    "F2C": "Form 2 C",
-    "F2D": "Form 2 D",
-    "F3A": "Form 3 A",
-    "F3B": "Form 3 B",
-    "F3C": "Form 3 C",
-    "F3D": "Form 3 D",
-    "F4A": "Form 4 A",
-    "F4B": "Form 4 B",
-    "F4C": "Form 4 C",
-    "F4D": "Form 4 D",
-    "F5A": "Form 5 A",
-    "F5B": "Form 5 B",
-    "F5C": "Form 5 C",
-    "F5D": "Form 5 D"
-  }
+    "f1": "Form 1",
+    "f2": "Form 2",
+    "f3": "Form 3",
+    "f4": "Form 4",
+    "f5": "Form 5"
+  },
+  "classlists": [
+    {
+      "id": "f1",
+      "name": "Form 1",
+      "students": [
+        {
+          "id": "1",
+          "first_name": "Saka Keugeu f1",
+          "last_name": "Ricky Clautaire",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "2",
+          "first_name": "John f1",
+          "last_name": "Paul",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "3",
+          "first_name": "Mary f1",
+          "last_name": "Christine",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "4",
+          "first_name": "Peter f1",
+          "last_name": "Roman",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "first_name": "asd f1",
+          "last_name": "qwe",
+          "date_of_birth": "2021-10-02",
+          "gender": "male",
+          "fathers_name": "paul",
+          "fathers_phone": "12",
+          "fathers_occupation": "sfsdw",
+          "mothers_name": "wffw",
+          "mothers_phone": "123",
+          "mothers_occupation": "sƒwf",
+          "id": "4uWzUJI"
+        },
+        {
+          "first_name": "q f1",
+          "last_name": "qf",
+          "date_of_birth": "2021-10-09",
+          "gender": "female",
+          "fathers_name": "`sd",
+          "fathers_phone": "123",
+          "fathers_occupation": "szdjgvj",
+          "mothers_name": "zfhg",
+          "mothers_phone": "4352",
+          "mothers_occupation": "zwdj",
+          "id": "IWpt7Ai"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "name": "Form 2",
+      "students": [
+        {
+          "id": "1",
+          "first_name": "Saka Keugeu f2",
+          "last_name": "Ricky Clautaire",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "2",
+          "first_name": "John f2",
+          "last_name": "Paul",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "3",
+          "first_name": "Mary f2",
+          "last_name": "Christine",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "4",
+          "first_name": "Peter f2",
+          "last_name": "Roman",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "first_name": "asd f2",
+          "last_name": "qwe",
+          "date_of_birth": "2021-10-02",
+          "gender": "male",
+          "fathers_name": "paul",
+          "fathers_phone": "12",
+          "fathers_occupation": "sfsdw",
+          "mothers_name": "wffw",
+          "mothers_phone": "123",
+          "mothers_occupation": "sƒwf",
+          "id": "4uWzUJI"
+        },
+        {
+          "first_name": "q f2",
+          "last_name": "qf",
+          "date_of_birth": "2021-10-09",
+          "gender": "female",
+          "fathers_name": "`sd",
+          "fathers_phone": "123",
+          "fathers_occupation": "szdjgvj",
+          "mothers_name": "zfhg",
+          "mothers_phone": "4352",
+          "mothers_occupation": "zwdj",
+          "id": "IWpt7Ai"
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "name": "Form 3",
+      "students": [
+        {
+          "id": "1",
+          "first_name": "Saka Keugeu f3",
+          "last_name": "Ricky Clautaire",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "2",
+          "first_name": "John f3",
+          "last_name": "Paul",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "3",
+          "first_name": "Mary f3",
+          "last_name": "Christine",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "4",
+          "first_name": "Peter f3",
+          "last_name": "Roman",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "first_name": "asd f3",
+          "last_name": "qwe",
+          "date_of_birth": "2021-10-02",
+          "gender": "male",
+          "fathers_name": "paul",
+          "fathers_phone": "12",
+          "fathers_occupation": "sfsdw",
+          "mothers_name": "wffw",
+          "mothers_phone": "123",
+          "mothers_occupation": "sƒwf",
+          "id": "4uWzUJI"
+        },
+        {
+          "first_name": "q f3",
+          "last_name": "qf",
+          "date_of_birth": "2021-10-09",
+          "gender": "female",
+          "fathers_name": "`sd",
+          "fathers_phone": "123",
+          "fathers_occupation": "szdjgvj",
+          "mothers_name": "zfhg",
+          "mothers_phone": "4352",
+          "mothers_occupation": "zwdj",
+          "id": "IWpt7Ai"
+        }
+      ]
+    },
+    {
+      "id": "f4",
+      "name": "Form 4",
+      "students": [
+        {
+          "id": "1",
+          "first_name": "Saka Keugeu f4",
+          "last_name": "Ricky Clautaire",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "2",
+          "first_name": "John f4",
+          "last_name": "Paul",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "3",
+          "first_name": "Mary f4",
+          "last_name": "Christine",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "4",
+          "first_name": "Peter f4",
+          "last_name": "Roman",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "first_name": "asd f4",
+          "last_name": "qwe",
+          "date_of_birth": "2021-10-02",
+          "gender": "male",
+          "fathers_name": "paul",
+          "fathers_phone": "12",
+          "fathers_occupation": "sfsdw",
+          "mothers_name": "wffw",
+          "mothers_phone": "123",
+          "mothers_occupation": "sƒwf",
+          "id": "4uWzUJI"
+        },
+        {
+          "first_name": "q f4",
+          "last_name": "qf",
+          "date_of_birth": "2021-10-09",
+          "gender": "female",
+          "fathers_name": "`sd",
+          "fathers_phone": "123",
+          "fathers_occupation": "szdjgvj",
+          "mothers_name": "zfhg",
+          "mothers_phone": "4352",
+          "mothers_occupation": "zwdj",
+          "id": "IWpt7Ai"
+        }
+      ]
+    },
+    {
+      "id": "f5",
+      "name":"Form 5",
+      "students": [
+        {
+          "id": "1",
+          "first_name": "Saka Keugeu f5",
+          "last_name": "Ricky Clautaire",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "2",
+          "first_name": "John f5",
+          "last_name": "Paul",
+          "date_of_birth": "20/05/2020",
+          "gender": "male",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "3",
+          "first_name": "Mary f5",
+          "last_name": "Christine",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "id": "4",
+          "first_name": "Peter f5",
+          "last_name": "Roman",
+          "date_of_birth": "20/05/2020",
+          "gender": "female",
+          "fathers_name": "ABC DEF",
+          "fathers_phone": "123456789",
+          "fathers_occupation": "Worker",
+          "mothers_name": "Ijk Lmn",
+          "mothers_phone": "987654321",
+          "mothers_occupation": "House Wife"
+        },
+        {
+          "first_name": "asd f5",
+          "last_name": "qwe",
+          "date_of_birth": "2021-10-02",
+          "gender": "male",
+          "fathers_name": "paul",
+          "fathers_phone": "12",
+          "fathers_occupation": "sfsdw",
+          "mothers_name": "wffw",
+          "mothers_phone": "123",
+          "mothers_occupation": "sƒwf",
+          "id": "4uWzUJI"
+        },
+        {
+          "first_name": "q f5",
+          "last_name": "qf",
+          "date_of_birth": "2021-10-09",
+          "gender": "female",
+          "fathers_name": "`sd",
+          "fathers_phone": "123",
+          "fathers_occupation": "szdjgvj",
+          "mothers_name": "zfhg",
+          "mothers_phone": "4352",
+          "mothers_occupation": "zwdj",
+          "id": "IWpt7Ai"
+        }
+      ]
+    }
+  ]
 }
