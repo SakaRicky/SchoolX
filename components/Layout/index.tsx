@@ -97,7 +97,7 @@ const useStyles = makeStyles(theme => ({
 }), { name: 'MuiLayoutComponent' });
 
 
-const Layout = ({children}: LayoutProps) => {
+export const Layout = ({children}: LayoutProps) => {
 
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -231,6 +231,4 @@ const Layout = ({children}: LayoutProps) => {
       </div>
         
     )
-}
-
-export default Layout;
+};

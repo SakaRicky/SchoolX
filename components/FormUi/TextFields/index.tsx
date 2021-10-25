@@ -5,16 +5,23 @@ interface TextFieldProps {
     name: string,
     label: string,
     fullWidth?: boolean,
+};
+
+interface configTextField {
+    label: string,
+    fullWidth?: boolean,
+    error?: boolean,
+    helperText?: string
 }
 
-const TextFieldWrapper = ({name, label, fullWidth}: TextFieldProps) => {
+export const TextFieldWrapper = ({name, label, fullWidth}: TextFieldProps) => {
     
     const [field, meta] = useField(name);
 
-    const configTextField: any = {
+    const configTextField: configTextField = {
         ...field,
         fullWidth,
-        label,
+        label
     }    
 
     if (meta && meta.touched && meta.error) {
@@ -25,6 +32,4 @@ const TextFieldWrapper = ({name, label, fullWidth}: TextFieldProps) => {
     return (
         <TextField {...configTextField}/>
     )
-}
-
-export default TextFieldWrapper;
+};

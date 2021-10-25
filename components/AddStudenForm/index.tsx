@@ -67,7 +67,7 @@ const FORM_VALIDATION = yup.object().shape({
     mothers_phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+export const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
     const classes = useStyles();
 
     const handleCancel = () => {
@@ -190,5 +190,3 @@ const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentPro
       </Grid>
   );
 }
-
-export default AddStudentForm;

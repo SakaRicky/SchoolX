@@ -6,8 +6,9 @@ interface SelectProps {
     name: string,
     options: { [code: string] : string }
     label: string
-}
-const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: SelectProps) => {
+};
+
+export const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: SelectProps) => {
 
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
@@ -42,6 +43,4 @@ const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: SelectProp
             })}
         </TextField>
     );
-}
-
-export default SelectWrapper;
+};

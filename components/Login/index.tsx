@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { 
   Avatar,
   CssBaseline,
@@ -15,11 +14,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import teacherServices from 'services/user';
 import { useRouter } from 'next/router';
 import { LoggedUser } from 'types';
-import { Form, Formik, validateYupSchema } from 'formik';
-import Button from 'components/FormUi/Button';
-import TextFieldWrapper from 'components/FormUi/TextFields';
-import CheckBoxWrapper from 'components/FormUi/CheckBox';
-import * as yup from 'yup';
+import { Form, Formik } from 'formik';
+import { ButtonWrapper, TextFieldWrapper, CheckBoxWrapper } from 'components';
+import { object, string } from 'yup';
 
 
 const useStyles = makeStyles(theme => {
@@ -39,7 +36,7 @@ const useStyles = makeStyles(theme => {
 })
 
 // Not fully functional as I need to implement the state using context api
-const SignIn = () => {
+export const Login = () => {
 
   const router = useRouter()
   const classes = useStyles();
@@ -60,9 +57,9 @@ const SignIn = () => {
     remember: false
   }
 
-  const FORM_VALIDATION = yup.object().shape({
-    email: yup.string().email("Invalid email").required("please enter email"),
-    password: yup.string().required("password needed"),
+  const FORM_VALIDATION = object().shape({
+    email: string().email("Invalid email").required("please enter email"),
+    password: string().required("password needed"),
   });
 
   return (
@@ -118,9 +115,9 @@ const SignIn = () => {
                     </Grid>
                     <CheckBoxWrapper name="remember" label="Remember Me"/>
                     <Grid item xs={12}>
-                      <Button fullWidth color="primary">
+                      <ButtonWrapper fullWidth color="primary">
                           Sign In
-                      </Button>
+                      </ButtonWrapper>
                     </Grid>
                     <Grid container>
                       <Grid item xs>
@@ -136,6 +133,4 @@ const SignIn = () => {
         </Box>
       </Container>
   );
-}
-
-export default SignIn;
+};

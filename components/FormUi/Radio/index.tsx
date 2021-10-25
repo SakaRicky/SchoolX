@@ -10,7 +10,7 @@ interface RadioProps {
     name: string,
 }
 
-const RadioWrapper = ({name}: RadioProps) => {
+export const RadioWrapper = ({name}: RadioProps) => {
     
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
@@ -40,6 +40,4 @@ const RadioWrapper = ({name}: RadioProps) => {
             </RadioGroup>
         </FormControl>
     )
-}
-
-export default RadioWrapper;
+};

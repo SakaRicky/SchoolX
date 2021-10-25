@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const FlashNotification = ({notify, setNotify}: FlashNotificationProps) => {
+export const FlashNotification = ({notify, setNotify}: FlashNotificationProps) => {
     
     const classes = useStyles();
 
@@ -39,5 +39,3 @@ const FlashNotification = ({notify, setNotify}: FlashNotificationProps) => {
             </Snackbar>
     );
 }
-
-export default FlashNotification;

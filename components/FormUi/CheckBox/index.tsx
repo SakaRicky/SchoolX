@@ -1,4 +1,3 @@
-import * as React from "react";
 import {  FormControlLabel, Checkbox,} from '@material-ui/core';
 import { useField, useFormikContext } from "formik";
 
@@ -7,7 +6,7 @@ interface CheckBoxProps {
     label: string,
 }
 
-const CheckBoxWrapper = ({name, label}: CheckBoxProps) => {
+export const CheckBoxWrapper = ({name, label}: CheckBoxProps) => {
     
     const [field, meta] = useField(name);
     const { values, setFieldValue } = useFormikContext();
@@ -18,7 +17,7 @@ const CheckBoxWrapper = ({name, label}: CheckBoxProps) => {
         setFieldValue(name, checked);
     }
 
-    const configCheckBoxGroup: any = {
+    const configCheckBoxGroup: unknown = {
         ...field,
         value: values,
         name,
@@ -33,6 +32,4 @@ const CheckBoxWrapper = ({name, label}: CheckBoxProps) => {
             label="Remember me"
         />
     )
-}
-
-export default CheckBoxWrapper;
+};
