@@ -3,7 +3,7 @@ import axios from "axios";
 import { ClassListType } from "types";
 
 
-const baseURL = 'http://localhost:5000/';
+const baseURL = process.env.HOST;
 
 const getClassList = async (id: string) => {    
     const {data: classList} = await axios.get<ClassListType>(`${baseURL}classlists/${id}`);

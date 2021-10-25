@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -11,7 +11,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { Student } from 'types';
 
 interface Column {
-  id: 'number' | 'id' | 'first_name' | 'last_name' | 'date_of_birth' | 'gender' | 'fathers_name' | 'fathers_phone';
+  // value in the student object to display
+  detail: 'number' | 'id' | 'first_name' | 'last_name' | 'date_of_birth' | 'gender' | 'fathers_name' | 'fathers_phone';
   label: string;
   minWidth?: number;
   maxWidth?: number;
@@ -20,40 +21,40 @@ interface Column {
 }
 
 const columns: Column[] = [
-  { id: 'number', label: 'Number', minWidth: 70 },
-  { id: 'id', label: 'Matricule', minWidth: 60 },
+  { detail: 'number', label: 'Number', minWidth: 70 },
+  { detail: 'id', label: 'Matricule', minWidth: 60 },
   {
-    id: 'first_name',
+    detail: 'first_name',
     label: 'First Name',
     minWidth: 70,
     format: (value: number) => value.toLocaleString('en-US'),
   },
   {
-    id: 'last_name',
+    detail: 'last_name',
     label: 'Last Name',
     minWidth: 70,
     format: (value: number) => value.toLocaleString('en-US'),
   },
   {
-    id: 'date_of_birth',
+    detail: 'date_of_birth',
     label: 'Date of Birth',
     minWidth: 70,
     format: (value: number) => value.toLocaleString('en-US'),
   },
   {
-    id: 'gender',
+    detail: 'gender',
     label: 'Gender',
     maxWidth: 10,
     format: (value: number) => value.toLocaleString('en-US'),
   },
   {
-    id: 'fathers_name',
+    detail: 'fathers_name',
     label: 'Father Name',
     minWidth: 70,
     format: (value: number) => value.toLocaleString('en-US'),
   },
   {
-    id: 'fathers_phone',
+    detail: 'fathers_phone',
     label: 'Father Phone',
     minWidth: 70,
     format: (value: number) => value.toLocaleString('en-US'),
@@ -92,8 +93,8 @@ interface ClassListProps {
 
 const ClassList = ({classList}: ClassListProps) => {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
@@ -123,7 +124,7 @@ const ClassList = ({classList}: ClassListProps) => {
               {columns.map((column) => (
                 <TableCell
                   className={classes.tableHead}
-                  key={column.id}
+                  key={column.detail}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
@@ -133,13 +134,13 @@ const ClassList = ({classList}: ClassListProps) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {numberedClassList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+            {numberedClassList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((student) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                <TableRow hover role="checkbox" tabIndex={-1} key={student.id}>
                   {columns.map((column) => {                      
-                    const value = row[column.id];
+                    const value = student[column.detail];
                     return (
-                      <TableCell key={column.id} align={column.align}>
+                      <TableCell key={column.detail} align={column.align}>
                         {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );
@@ -151,7 +152,7 @@ const ClassList = ({classList}: ClassListProps) => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[25, 50, 100]}
+        rowsPerPageOptions={[10, 25, 50, 100]}
         component="div"
         count={numberedClassList.length}
         rowsPerPage={rowsPerPage}

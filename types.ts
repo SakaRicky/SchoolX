@@ -48,7 +48,7 @@ export enum Gender {
 export type Color = 'success' | 'info' | 'warning' | 'error' | undefined;
 export interface Notify {
     isOpen : boolean,
-    message: string | any,
+    message: string,
     type: Color
 }
 
