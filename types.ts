@@ -57,10 +57,13 @@ export interface ClassListType {
     id: string,
     name: string,
     students: Student[]
+<<<<<<< HEAD
 }
 
 export interface ClassType {
     id: string,
     code: string,
     name: string
+=======
+>>>>>>> feat: added ClassType and classes in db.json
 }

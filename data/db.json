@@ -141,33 +141,13 @@
       "id": "Nkb-77_"
     }
   ],
-  "classes": [
-    {
-      "id": "f1",
-      "code": "f1",
-      "name": "Form 1"
-    },
-    {
-      "id": "f2",
-      "code": "f2",
-      "name": "Form 2"
-    },
-    {
-      "id": "f3",
-      "code": "f3",
-      "name": "Form 3"
-    },
-    {
-      "id": "f4",
-      "code": "f4",
-      "name": "Form 4"
-    },
-    {
-      "id": "f5",
-      "code": "f5",
-      "name": "Form 5"
-    }
-  ],
+  "classes": {
+    "f1": "Form 1",
+    "f2": "Form 2",
+    "f3": "Form 3",
+    "f4": "Form 4",
+    "f5": "Form 5"
+  },
   "classlists": [
     {
       "id": "f1",
@@ -507,7 +487,7 @@
     },
     {
       "id": "f5",
-      "name": "Form 5",
+      "name":"Form 5",
       "students": [
         {
           "id": "1",
