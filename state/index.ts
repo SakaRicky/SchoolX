@@ -1,3 +1,4 @@
-export * from 'state/reducer';
-export * from 'state/state';
-export * from 'state/stateTypes';
+export { reducer, setUser } from 'state/reducer';
+export { StateProvider, useStateValue } from 'state/state';
+export type { State } from 'state/state';
+export {  setStateType,  } from 'state/stateTypes'

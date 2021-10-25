@@ -1,5 +1,5 @@
 import {  LoggedUser } from "types";
-import { State } from 'state/state';
+import { State } from 'state';
 
 export type Action = 
         {
