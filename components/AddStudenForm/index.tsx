@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { NewStudent, ClassType } from 'types';
 import { makeStyles } from '@material-ui/styles';
+<<<<<<< HEAD
 import { 
     TextFieldWrapper,
     SelectWrapper,
@@ -16,6 +17,13 @@ import {
     RadioWrapper,
     ButtonWrapper,
 } from 'components/FormUi';
+=======
+import TextField from 'components/FormUi/TextFields';
+import Select from 'components/FormUi/Select';
+import DatePicker from 'components/FormUi/DatePicker';
+import Radio from 'components/FormUi/Radio';
+import Button from 'components/FormUi/Button';
+>>>>>>> chore: refactored the list of classes and typed it
 import classListServices from 'services/classList';
 
 
@@ -69,7 +77,11 @@ const FORM_VALIDATION = yup.object().shape({
     mothers_phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
+<<<<<<< HEAD
 export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+=======
+const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+>>>>>>> chore: refactored the list of classes and typed it
     const [allClasses, setAllClasses] = useState<ClassType[]>([]);
     const classes = useStyles();
 
