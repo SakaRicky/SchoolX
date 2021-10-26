@@ -14,6 +14,10 @@ export interface Student {
     mothers_occupation: string
 }
 
+export interface StudentOnClassList extends Student {
+    number: number
+}
+
 export interface Teacher {
     id: string,
     first_name: string,
@@ -56,4 +60,10 @@ export interface ClassListType {
     id: string,
     name: string,
     students: Student[]
+}
+
+export interface ClassType {
+    id: string,
+    code: string,
+    name: string
 }

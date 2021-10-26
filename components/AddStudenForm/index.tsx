@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect, FC } from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -7,14 +7,14 @@ import {
     Grid,
     Typography
 } from "@material-ui/core";
-import { NewStudent } from 'types';
+import { NewStudent, ClassType } from 'types';
 import { makeStyles } from '@material-ui/styles';
 import TextField from 'components/FormUi/TextFields';
 import Select from 'components/FormUi/Select';
 import DatePicker from 'components/FormUi/DatePicker';
 import Radio from 'components/FormUi/Radio';
 import Button from 'components/FormUi/Button';
-import schoolClasses from 'data/classes.json';
+import classListServices from 'services/classList';
 
 
 interface AddStudentProps {
@@ -67,12 +67,21 @@ const FORM_VALIDATION = yup.object().shape({
     mothers_phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-export const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+    const [allClasses, setAllClasses] = useState<ClassType[]>([]);
     const classes = useStyles();
 
-    const handleCancel = () => {
-
-    }
+    useEffect(() => {
+        const fetchClasses = async () => {
+            try {
+                const allClasses: ClassType[] = await classListServices.getAllClasses();
+                setAllClasses(allClasses);
+            } catch (error: any) {
+                console.log(error);
+            }
+        }
+        fetchClasses();
+    }, [])
     
   return (
       <Grid container className={classes.root}>
@@ -127,7 +136,7 @@ export const AddStudentForm: React.FC<AddStudentProps> = ({handleSubmit}: AddStu
                                     <Select
                                         name="class"
                                         label="Class"
-                                        options={schoolClasses}
+                                        options={allClasses}
                                     />
                                 </Grid>
 

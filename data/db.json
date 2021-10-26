@@ -87,107 +87,20 @@
       "mothers_phone": "4352",
       "mothers_occupation": "zwdj",
       "id": "IWpt7Ai"
-    }
-  ],
-  "teachers": [
-    {
-      "id": "1",
-      "first_name": "Saka",
-      "last_name": "Ricky",
-      "date_of_birth": "12/12/2020",
-      "gender": "male",
-      "email": "saka@ricky.com",
-      "phone": "12345678"
     },
     {
-      "first_name": "John",
-      "last_name": "Paul",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "john@paul.com",
-      "phone": "12345678",
-      "id": "CdsV40V"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-02",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "e673duD"
-    },
-    {
-      "first_name": "Saka",
-      "last_name": "Ricky",
-      "date_of_birth": "2021-10-02",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "Nkb-77_"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "lA__cEW"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "G0QW6vN"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "1xqrM5j"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "v9gAlGk"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "1MePFQO"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "FPSXkod"
-    },
-    {
-      "first_name": "Saka Keugeu",
-      "last_name": "Clautaire",
-      "date_of_birth": "2021-10-03",
-      "gender": "male",
-      "email": "sakaricky91@gmail.com",
-      "phone": "698425147",
-      "id": "xczmWCD"
+      "first_name": "New",
+      "last_name": "Student",
+      "date_of_birth": "2021-10-08",
+      "gender": "female",
+      "class": "f3",
+      "fathers_name": "Test",
+      "fathers_phone": "123",
+      "fathers_occupation": "New ",
+      "mothers_name": "taest",
+      "mothers_phone": "2311",
+      "mothers_occupation": "fffd",
+      "id": "skDLXek"
     }
   ],
   "teachers": [
@@ -228,13 +141,33 @@
       "id": "Nkb-77_"
     }
   ],
-  "classes": {
-    "f1": "Form 1",
-    "f2": "Form 2",
-    "f3": "Form 3",
-    "f4": "Form 4",
-    "f5": "Form 5"
-  },
+  "classes": [
+    {
+      "id": "f1",
+      "code": "f1",
+      "name": "Form 1"
+    },
+    {
+      "id": "f2",
+      "code": "f2",
+      "name": "Form 2"
+    },
+    {
+      "id": "f3",
+      "code": "f3",
+      "name": "Form 3"
+    },
+    {
+      "id": "f4",
+      "code": "f4",
+      "name": "Form 4"
+    },
+    {
+      "id": "f5",
+      "code": "f5",
+      "name": "Form 5"
+    }
+  ],
   "classlists": [
     {
       "id": "f1",
@@ -574,7 +507,7 @@
     },
     {
       "id": "f5",
-      "name":"Form 5",
+      "name": "Form 5",
       "students": [
         {
           "id": "1",
