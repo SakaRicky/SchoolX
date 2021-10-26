@@ -3,7 +3,8 @@ import { Typography, makeStyles } from "@material-ui/core";
 import ClassList from "components/ClassList";
 import classListServices from 'services/classList';
 import { TextField, MenuItem, Grid } from '@material-ui/core';
-import { ClassListType } from 'types';
+import { ClassListType, ClassType } from 'types';
+import SelectWrapper from 'components/FormUi/Select';
 
 const useStyles = makeStyles(theme => {
     return {
@@ -27,7 +28,7 @@ const ClassListPage = () => {
     const [currentClassList, setCurrentClassList] = useState<ClassListType | null>(null);
     const [classToFetch, setClassToFetch] = useState<string>('');
     // state to all the class list so that we can select the desired class list from
-    const [allClassLists, setAllClassLists] = useState<ClassListType[]>([]);
+    const [allClassLists, setAllClassLists] = useState<ClassType[]>([]);
 
     const classes = useStyles();
 
@@ -47,16 +48,16 @@ const ClassListPage = () => {
     }, [classToFetch])
 
     useEffect(() => {
-        const getCurrentClassList = async() => {
+        const getAllClasses = async() => {
             try {
-                const allClasslist = await classListServices.getAllClassLists();                
+                const allClasslist: ClassType[] = await classListServices.getAllClasses();                
                 setAllClassLists(allClasslist);
             } catch (error: any) {
                 console.log(error);
             }
             
         }
-        getCurrentClassList();
+        getAllClasses();
     }, [])
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

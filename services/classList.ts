@@ -1,6 +1,5 @@
-import { Student } from "types";
 import axios from "axios";
-import { ClassListType } from "types";
+import { ClassListType, ClassType } from "types";
 
 
 const baseURL = process.env.HOST;
@@ -11,13 +10,19 @@ const getClassList = async (id: string) => {
 }
 
 const getAllClassLists = async () => {    
-    const {data: classlists} = await axios.get<ClassListType[]>(`${baseURL}classlists`);
-    return classlists;
+    const {data: classLists} = await axios.get<ClassListType[]>(`${baseURL}classes`);
+    return classLists;
+}
+
+const getAllClasses = async () => {    
+    const {data: classes} = await axios.get<ClassType[]>(`${baseURL}classes`);
+    return classes;
 }
 
 const classListServices = {
     getClassList,
-    getAllClassLists
+    getAllClassLists,
+    getAllClasses
 }
 
 export default classListServices;

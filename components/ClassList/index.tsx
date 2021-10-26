@@ -8,7 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import { Student } from 'types';
+import { Student, StudentOnClassList } from 'types';
 
 interface Column {
   // value in the student object to display
@@ -61,18 +61,6 @@ const columns: Column[] = [
   },
 ];
 
-interface StudentData {
-  number: number;
-  matricule: string;
-  names: string;
-  dateOfBirth: string;
-  picture: string;
-}
-
-function createData(number: number, matricule: string, names: string, dateOfBirth: string, picture: string): StudentData {
-  return { number, matricule, names, dateOfBirth, picture };
-}
-
 const useStyles = makeStyles(theme => {
   return {
     root: {
@@ -111,7 +99,7 @@ const ClassList = ({classList}: ClassListProps) => {
       return (name1 < name2) ? -1 : (name1 > name2) ? 1 : 0;
   });
 
-  const numberedClassList = classList.map((student, idx) => {
+  const numberedClassList: StudentOnClassList[] = classList.map((student, idx) => {
       return {number: idx+1, ...student}
   });  
 
