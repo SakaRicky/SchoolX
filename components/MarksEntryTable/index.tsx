@@ -1,22 +1,28 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
-import { Student, StudentOnClassList } from 'types';
+import {
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    TextField,
+    Button,
+    Grid
+} from '@material-ui/core';
+import { MarksEntryListType, StudentOnMarksEntry } from 'types';
+import { saveMarks } from 'services';
 
+
+// For now we use the id as matriculestudents
 interface Column {
   // value in the student object to display
-  detail: 'number' | 'id' | 'first_name' | 'last_name' | 'date_of_birth' | 'gender' | 'fathers_name' | 'fathers_phone';
+  detail: 'number' | 'id' | 'names' | 'marks';
   label: string;
   minWidth?: number;
   maxWidth?: number;
-  align?: 'right';
   format?: (value: number) => string;
 }
 
@@ -24,41 +30,16 @@ const columns: Column[] = [
   { detail: 'number', label: 'Number', minWidth: 70 },
   { detail: 'id', label: 'Matricule', minWidth: 60 },
   {
-    detail: 'first_name',
-    label: 'First Name',
+    detail: 'names',
+    label: 'Names',
     minWidth: 70,
-    format: (value: number) => value.toLocaleString('en-US'),
   },
   {
-    detail: 'last_name',
-    label: 'Last Name',
+    detail: 'marks',
+    label: 'Student Marks',
     minWidth: 70,
     format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    detail: 'date_of_birth',
-    label: 'Date of Birth',
-    minWidth: 70,
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    detail: 'gender',
-    label: 'Gender',
-    maxWidth: 10,
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    detail: 'fathers_name',
-    label: 'Father Name',
-    minWidth: 70,
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
-  {
-    detail: 'fathers_phone',
-    label: 'Father Phone',
-    minWidth: 70,
-    format: (value: number) => value.toLocaleString('en-US'),
-  },
+  }
 ];
 
 const useStyles = makeStyles(theme => {
@@ -67,41 +48,78 @@ const useStyles = makeStyles(theme => {
         width: '100%',
       },
       container: {
-        maxHeight: 840,
+        maxHeight: '100%',
       },
       tableHead: {
           fontWeight: 900
+      },
+      submit: {
+          display: 'flex',
+          justifyContent: 'center',
+          margin: theme.spacing(2)
+      },
+      submitButton: {
+        backgroundColor: theme.palette.primary.light,
+        color: "white",
+        "&:hover, &:focus": {
+            backgroundColor: theme.palette.primary.main,
+        }
+      },
+      space: {
+          height: theme.spacing(2)
       }
   }
 });
 
-interface ClassListProps {
-    classList: Student[]
+interface MarksEntryListProps {
+    seqClass: MarksEntryListType
 }
 
-export const MarksEntryList = ({classList}: ClassListProps) => {
+interface NumberedStudentOnMarksEntry extends StudentOnMarksEntry {
+    number: number
+}
+
+export const MarksEntryList = ({seqClass}: MarksEntryListProps) => {
   const classes = useStyles();
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [savedStudents, setSavedStudents] = useState<StudentOnMarksEntry[]>(seqClass.students);
+  
+  useEffect(() => {
+    setSavedStudents(seqClass.students);
+  }, [seqClass])
 
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
-  classList.sort((student1, student2) => {
-      const name1 = student1.first_name.toUpperCase();
-      const name2 = student2.first_name.toUpperCase();
+  savedStudents.sort((student1, student2) => {
+      const name1 = student1.names.toUpperCase();
+      const name2 = student2.names.toUpperCase();
       return (name1 < name2) ? -1 : (name1 > name2) ? 1 : 0;
   });
 
-  const numberedClassList: StudentOnClassList[] = classList.map((student, idx) => {
+  const numberedStudents: NumberedStudentOnMarksEntry[] = savedStudents.map((student, idx) => {
       return {number: idx+1, ...student}
-  });  
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, student: StudentOnMarksEntry) => {
+    const updatedSavedStudent = savedStudents.map(savedStudent => {
+        if (savedStudent.id === student.id) {
+            return {
+                ...savedStudent,
+                marks: Number(event.target.value)
+            }
+        }
+        return savedStudent
+    })
+    setSavedStudents(updatedSavedStudent);
+    
+  }
+
+  const handleSubmit = async () => {
+    const seqClassToSave = {
+        ...seqClass,
+        students: savedStudents
+    }
+    const savedMarks = await saveMarks(seqClassToSave); 
+    console.log('Saved class ', savedMarks);
+      
+  }
 
   return (
     <Paper className={classes.root}>
@@ -113,7 +131,6 @@ export const MarksEntryList = ({classList}: ClassListProps) => {
                 <TableCell
                   className={classes.tableHead}
                   key={column.detail}
-                  align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
                   {column.label}
@@ -122,13 +139,21 @@ export const MarksEntryList = ({classList}: ClassListProps) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {numberedClassList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((student) => {
+            {numberedStudents.map((student: NumberedStudentOnMarksEntry) => {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={student.id}>
-                  {columns.map((column) => {                      
+                  {columns.map((column, idx) => {                      
                     const value = student[column.detail];
+                    
+                    if (idx === 3) {                                              
+                        return (
+                            <TableCell key={column.detail}>
+                                <TextField variant="outlined" value={value} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, student)} />
+                            </TableCell>
+                        )
+                    }
                     return (
-                      <TableCell key={column.detail} align={column.align}>
+                      <TableCell key={column.detail}>
                         {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );
@@ -139,15 +164,12 @@ export const MarksEntryList = ({classList}: ClassListProps) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 50, 100]}
-        component="div"
-        count={numberedClassList.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+      <Grid className={classes.submit}>
+            <Grid item color="primary" xs={12} sm={4}>
+                <Button fullWidth className={classes.submitButton} onClick={handleSubmit}>Submit</Button>
+            </Grid>
+      </Grid>
+      <div className={classes.space} />
     </Paper>
   );
 }
