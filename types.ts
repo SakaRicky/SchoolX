@@ -18,6 +18,13 @@ export interface StudentOnClassList extends Student {
     number: number
 }
 
+export interface StudentOnMarksEntry {
+    id: string, // for now used as matricule
+    names: string,
+    marks: number
+    
+}
+
 export interface Teacher {
     id: string,
     first_name: string,
@@ -57,19 +64,16 @@ export interface ClassListType {
     id: string,
     name: string,
     students: Student[]
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> chore: refactored the list of classes and typed it
 }
 
 export interface ClassType {
     id: string,
     code: string,
     name: string
-<<<<<<< HEAD
-=======
->>>>>>> feat: added ClassType and classes in db.json
-=======
->>>>>>> chore: refactored the list of classes and typed it
+}
+
+export interface MarksEntryListType {
+    id: string,
+    nameOfClass: string,
+    students: StudentOnMarksEntry[]
 }
