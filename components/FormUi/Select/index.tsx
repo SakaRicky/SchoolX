@@ -1,14 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import { TextField, MenuItem } from '@material-ui/core';
-import { useField, useFormikContext } from 'formik'
+import { useField, useFormikContext } from 'formik';
+import { ClassListType, ClassType } from 'types';
 
 interface SelectProps {
     name: string,
-    options: { [code: string] : string }
-    label: string
-};
-
-export const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: SelectProps) => {
+    options: ClassType[]
+    label: string,
+    handleChangeParent?: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+export const SelectWrapper: React.FC<SelectProps> = ({name, options, label, handleChangeParent}: SelectProps) => {
 
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
@@ -24,7 +25,7 @@ export const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: Sel
         variant: 'outlined',
         fullWidth: true,
         label,
-        onChange: handleChange
+        onChange: handleChangeParent ? handleChangeParent : handleChange
     }
 
     if (meta && meta.touched && meta.error) {
@@ -34,10 +35,10 @@ export const SelectWrapper: React.FC<SelectProps> = ({name, options, label}: Sel
     
     return (
         <TextField {...configSelect}>
-            {Object.keys(options).map((item, idx) => {                
+            {options.map((singleClass, idx) => {                
                 return (
-                    <MenuItem key={idx} value={item}>
-                        {options[item]}
+                    <MenuItem key={idx} value={singleClass.code}>
+                        {singleClass.name}
                     </MenuItem>
                 )
             })}

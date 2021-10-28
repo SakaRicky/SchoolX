@@ -14,6 +14,10 @@ export interface Student {
     mothers_occupation: string
 }
 
+export interface StudentOnClassList extends Student {
+    number: number
+}
+
 export interface Teacher {
     id: string,
     first_name: string,
@@ -48,6 +52,18 @@ export enum Gender {
 export type Color = 'success' | 'info' | 'warning' | 'error' | undefined;
 export interface Notify {
     isOpen : boolean,
-    message: string | any,
+    message: string,
     type: Color
+}
+
+export interface ClassListType {
+    id: string,
+    name: string,
+    students: Student[]
+}
+
+export interface ClassType {
+    id: string,
+    code: string,
+    name: string
 }

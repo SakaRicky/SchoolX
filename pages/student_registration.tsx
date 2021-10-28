@@ -16,7 +16,7 @@ const StudentRegistration = () => {
                 message: "Student saved successfully",
                 type: "success"
             })
-        } catch (error) {
+        } catch (error: any) {
             setNotify({
                 isOpen: true,
                 message: error,
