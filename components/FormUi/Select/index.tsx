@@ -9,7 +9,7 @@ interface SelectProps {
     label: string,
     handleChangeParent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
-const SelectWrapper: React.FC<SelectProps> = ({name, options, label, handleChangeParent}: SelectProps) => {
+export const SelectWrapper: React.FC<SelectProps> = ({name, options, label, handleChangeParent}: SelectProps) => {
 
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();

@@ -9,11 +9,13 @@ import {
 } from "@material-ui/core";
 import { NewStudent, ClassType } from 'types';
 import { makeStyles } from '@material-ui/styles';
-import TextField from 'components/FormUi/TextFields';
-import Select from 'components/FormUi/Select';
-import DatePicker from 'components/FormUi/DatePicker';
-import Radio from 'components/FormUi/Radio';
-import Button from 'components/FormUi/Button';
+import { 
+    TextFieldWrapper,
+    SelectWrapper,
+    DatePickerWrapper,
+    RadioWrapper,
+    ButtonWrapper,
+} from 'components/FormUi';
 import classListServices from 'services/classList';
 
 
@@ -106,34 +108,34 @@ const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) =>
                             <Grid container spacing={2}>
 
                                 <Grid item xs={6}>
-                                    <TextField 
+                                    <TextFieldWrapper
                                         name="first_name"
                                         label="First Name"
                                     />
                                 </Grid>
 
                                 <Grid item xs={6}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="last_name"
                                         label="Last Name"
                                     />
                                 </Grid>
 
                                 <Grid item xs={12} md={6}>
-                                    <DatePicker 
+                                    <DatePickerWrapper 
                                         name="date_of_birth"
                                         label="Date of Birth"
                                     />
                                 </Grid>
 
                                 <Grid item xs={12} md={6}>
-                                    <Radio
+                                    <RadioWrapper
                                         name="gender"
                                     />
                                 </Grid>
 
                                 <Grid item xs={12}>
-                                    <Select
+                                    <SelectWrapper
                                         name="class"
                                         label="Class"
                                         options={allClasses}
@@ -141,51 +143,51 @@ const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) =>
                                 </Grid>
 
                                 <Grid item xs={12} md={6}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="fathers_name"
                                         label="Fathers Name"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="fathers_phone"
                                         label="Fathers Pnone Number"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="fathers_occupation"
                                         label="Fathers Occupation"
                                     />
                                 </Grid>
 
                                 <Grid item xs={12} md={6}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="mothers_name"
                                         label="Mothers Name"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="mothers_occupation"
                                         label="Mothers Occupation"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
-                                    <TextField 
+                                    <TextFieldWrapper 
                                         name="mothers_phone"
                                         label="Mothers Phone Number"
                                     />
                                 </Grid>
                             </Grid>
                             <div className={classes.submit}>
-                                <Button color="primary">
+                                <ButtonWrapper color="primary">
                                     Submit
-                                </Button>
+                                </ButtonWrapper>
 
-                                <Button cancel color="secondary">
+                                <ButtonWrapper cancel color="secondary">
                                     Cancel
-                                </Button>
+                                </ButtonWrapper>
                             </div>
 
                         </Form>
