@@ -6,9 +6,10 @@ import {
     Typography,
     makeStyles
  } from "@material-ui/core";
- import { getMarkEntryList, getAllClasses } from "services";
-import { ClassListType, ClassType, MarksEntryListType } from "types";
-import { MarksEntryList } from "components/MarksEntryTable";
+ import { getMarkEntryList, getAllClasses, saveMarks } from "services";
+import { ClassType, MarksEntryListType } from "types";
+import { MarksEntryTable, FlashNotification } from "components";
+import { Notify } from 'types';
 
 
 const useStyles = makeStyles(theme => {
@@ -46,11 +47,12 @@ const MarksEntry = () => {
     const [classToFetch, setClassToFetch] = useState<string>('');
     // state to hold the current classlist to display
     const [marksEntryList, setMarksEntryList] = useState<MarksEntryListType | null>(null); //
+    const [notify, setNotify] = useState<Notify>({isOpen: false, message: '', type: undefined});
     
     useEffect(() => {
         const fetchClasses = async () => {
             try {
-                const allClasses = await getAllClasses(); //: ClassType[]
+                const allClasses = await getAllClasses(); //: ClassType[]                
                 setAllClasses(allClasses);
             } catch (error: any) {
                 console.log(error);
@@ -79,8 +81,26 @@ const MarksEntry = () => {
         setClassToFetch(event.target.value);
     }
 
+    const handleSubmitMarks = async (marks: MarksEntryListType) => {
+        try {
+            const savedMarks = await saveMarks(marks);
+            setNotify({
+                isOpen: true,
+                message: "Marks saved successfully",
+                type: "success"
+            })
+        } catch (error) {
+            setNotify({
+                isOpen: true,
+                message: "Huston, we got a problem",
+                type: "error"
+            })
+        } 
+    }
+
     return (
         <div>
+            <FlashNotification notify={notify} setNotify={setNotify} />
             <Typography variant="h6">
                 Marks Entry
             </Typography>
@@ -114,7 +134,7 @@ const MarksEntry = () => {
             </Grid>
 
             <div>
-                {marksEntryList && <MarksEntryList seqClass={marksEntryList}/>}
+                {marksEntryList && <MarksEntryTable submitMarks={handleSubmitMarks} seqClass={marksEntryList}/>}
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {AddStudentForm, FlashNotification} from 'components';
 import { NewStudent } from "types";
-import studentServices from "services/student";
+import { saveStudent } from "services";
 import { Notify } from 'types';
 
 const StudentRegistration = () => {
@@ -9,7 +9,7 @@ const StudentRegistration = () => {
 
     const handleSubmit = async (newStudent: NewStudent) => {
         try {
-            const res = await studentServices.saveStudent(newStudent);
+            const res = await saveStudent(newStudent);
             setNotify({
                 isOpen: true,
                 message: "Student saved successfully",

@@ -9,7 +9,6 @@ import {
 } from "@material-ui/core";
 import { NewStudent, ClassType } from 'types';
 import { makeStyles } from '@material-ui/styles';
-<<<<<<< HEAD
 import { 
     TextFieldWrapper,
     SelectWrapper,
@@ -17,14 +16,7 @@ import {
     RadioWrapper,
     ButtonWrapper,
 } from 'components/FormUi';
-=======
-import TextField from 'components/FormUi/TextFields';
-import Select from 'components/FormUi/Select';
-import DatePicker from 'components/FormUi/DatePicker';
-import Radio from 'components/FormUi/Radio';
-import Button from 'components/FormUi/Button';
->>>>>>> chore: refactored the list of classes and typed it
-import classListServices from 'services/classList';
+import { getAllClasses } from 'services';
 
 
 interface AddStudentProps {
@@ -77,18 +69,14 @@ const FORM_VALIDATION = yup.object().shape({
     mothers_phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-<<<<<<< HEAD
 export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
-=======
-const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
->>>>>>> chore: refactored the list of classes and typed it
     const [allClasses, setAllClasses] = useState<ClassType[]>([]);
     const classes = useStyles();
 
     useEffect(() => {
         const fetchClasses = async () => {
             try {
-                const allClasses: ClassType[] = await classListServices.getAllClasses();
+                const allClasses: ClassType[] = await getAllClasses();
                 setAllClasses(allClasses);
             } catch (error: any) {
                 console.log(error);
@@ -123,6 +111,7 @@ const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) =>
                                     <TextFieldWrapper
                                         name="first_name"
                                         label="First Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
 
@@ -130,6 +119,7 @@ const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) =>
                                     <TextFieldWrapper 
                                         name="last_name"
                                         label="Last Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
 
@@ -158,18 +148,21 @@ const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) =>
                                     <TextFieldWrapper 
                                         name="fathers_name"
                                         label="Fathers Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <TextFieldWrapper 
                                         name="fathers_phone"
                                         label="Fathers Pnone Number"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextFieldWrapper 
                                         name="fathers_occupation"
                                         label="Fathers Occupation"
+                                        variant="outlined"
                                     />
                                 </Grid>
 
@@ -177,18 +170,21 @@ const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) =>
                                     <TextFieldWrapper 
                                         name="mothers_name"
                                         label="Mothers Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <TextFieldWrapper 
                                         name="mothers_occupation"
                                         label="Mothers Occupation"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <TextFieldWrapper 
                                         name="mothers_phone"
                                         label="Mothers Phone Number"
+                                        variant="outlined"
                                     />
                                 </Grid>
                             </Grid>

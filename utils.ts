@@ -1,6 +1,8 @@
 const stringToColor = (string: string) => {
     let hash = 0;
     let i;
+
+    
   
     /* eslint-disable no-bitwise */
     for (i = 0; i < string.length; i += 1) {
@@ -19,7 +21,8 @@ const stringToColor = (string: string) => {
 }
 
 // create a color for the avatar given the string of the name
-export const stringAvatar = (name: string) => {
+export const stringAvatar = (nameStr: string | undefined) => {
+    const name = nameStr ? nameStr : "Test User";
     return {
       sx: {
         bgcolor: stringToColor(name),

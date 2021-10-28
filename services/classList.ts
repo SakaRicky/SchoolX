@@ -25,7 +25,9 @@ export const getAllClassLists = async () => {
     return classLists;
 }
 
-export const getAllClasses = async () => {    
+export const getAllClasses = async (): Promise<ClassType[]> => {  
+    console.log(`${baseURL}classes`);
+      
     const {data: classes} = await axios.get<ClassType[]>(`${baseURL}classes`);
     return classes;
 };

@@ -16,25 +16,25 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
 
   const getContent = () => {
     if (router.pathname === '/')
-      return <Component {...pageProps} />;
+      return (
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      )
 
     return (
-      <Layout>
-        <Component {...pageProps} />{" "}
-      </Layout>
+      <StateProvider>
+        <ThemeProvider theme={theme}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </MuiPickersUtilsProvider>
+        </ThemeProvider>
+      </StateProvider>
     );
   };
-  return (
-    <StateProvider>
-      <ThemeProvider theme={theme}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-          </MuiPickersUtilsProvider>
-      </ThemeProvider>
-    </StateProvider>
-  )
+  return getContent() 
 }
 
 export default MyApp

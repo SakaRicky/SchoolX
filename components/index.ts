@@ -12,6 +12,7 @@ export { AddTeacherForm } from 'components/AddTeacherForm';
 export { FlashNotification } from 'components/FlashNotification';
 export { Layout } from 'components/Layout';
 export { Login } from 'components/Login';
+export { MarksEntryTable } from 'components/MarksEntryTable';
 
 export {
     ButtonWrapper,

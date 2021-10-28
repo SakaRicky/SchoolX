@@ -101,6 +101,20 @@
       "mothers_phone": "2311",
       "mothers_occupation": "fffd",
       "id": "skDLXek"
+    },
+    {
+      "first_name": "Rheine Jocelyne",
+      "last_name": "Clautaire",
+      "date_of_birth": "2021-10-03",
+      "gender": "female",
+      "class": "f2",
+      "fathers_name": "paul",
+      "fathers_phone": "698425147",
+      "fathers_occupation": "tsrath",
+      "mothers_name": "tyt4qu",
+      "mothers_phone": "22555663",
+      "mothers_occupation": "t4tt",
+      "id": "7am0gl0"
     }
   ],
   "teachers": [
@@ -603,7 +617,7 @@
         {
           "id": "2",
           "names": "John Paul f1",
-          "marks": ""
+          "marks": 8
         },
         {
           "id": "3",
@@ -613,7 +627,7 @@
         {
           "id": "4",
           "names": "Peter Roman f1",
-          "marks": ""
+          "marks": 16
         },
         {
           "names": "q qf f1",
@@ -632,34 +646,34 @@
       "nameOfClass": "Form 2",
       "students": [
         {
-          "id": "1",
-          "names": "Saka Keugeu Ricky Clautaire f2",
-          "marks": ""
+          "names": "asd qwe f2",
+          "marks": 3,
+          "id": "4uWzUJI"
         },
         {
           "id": "2",
           "names": "John Paul f2",
-          "marks": ""
+          "marks": 18
         },
         {
           "id": "3",
           "names": "Mary Christine f2",
-          "marks": ""
+          "marks": 15
         },
         {
           "id": "4",
           "names": "Peter Roman f2",
-          "marks": ""
-        },
-        {
-          "names": "asd qwe f2",
-          "marks": "",
-          "id": "4uWzUJI"
+          "marks": 10
         },
         {
           "names": "q qf f2",
           "marks": "",
           "id": "IWpt7Ai"
+        },
+        {
+          "id": "1",
+          "names": "Saka Keugeu Ricky Clautaire f2",
+          "marks": ""
         }
       ]
     },

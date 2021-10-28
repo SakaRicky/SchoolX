@@ -78,6 +78,9 @@ const useStyles = makeStyles(theme => ({
   active: {
       backgroundColor: theme.palette.secondary.light
   },
+  navItem : {
+    marginTop: theme.spacing(3)
+  },
   profile: {
       display: "flex",
       alignItems: "center",
@@ -148,7 +151,7 @@ export const Layout = ({children}: LayoutProps) => {
                         button 
                         key={item.text} 
                         onClick={() => pushAndCloseDrawer(item.path)}
-                        className={router.pathname === item.path ? classes.active : undefined}
+                        className={`${classes.navItem} ${router.pathname === item.path ? classes.active : undefined}`}
                     >
                         <ListItemIcon>{item.icon}</ListItemIcon>
                         <ListItemText primary={item.text} />
@@ -177,7 +180,7 @@ export const Layout = ({children}: LayoutProps) => {
                     </Typography>
                     <div className={classes.profile}>
                         <Typography className={classes.username}>{state.user && state.user.name}</Typography>
-                        <Avatar {...stringAvatar(state.user ? state.user.name : "Test User")} />
+                        <Avatar {...stringAvatar(state.user?.name)} />
                     </div>
                 </Toolbar>
             </AppBar>

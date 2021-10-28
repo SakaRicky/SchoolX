@@ -39,7 +39,7 @@ export interface LoggedUser {
     email: string,
     password?: string,
     remember?: boolean
-    name: string,
+    name?: string,
     token?: string
 }
 

@@ -72,14 +72,15 @@ const useStyles = makeStyles(theme => {
 });
 
 interface MarksEntryListProps {
-    seqClass: MarksEntryListType
+    seqClass: MarksEntryListType,
+    submitMarks: (marks: MarksEntryListType) => void
 }
 
 interface NumberedStudentOnMarksEntry extends StudentOnMarksEntry {
     number: number
 }
 
-export const MarksEntryList = ({seqClass}: MarksEntryListProps) => {
+export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) => {
   const classes = useStyles();
   const [savedStudents, setSavedStudents] = useState<StudentOnMarksEntry[]>(seqClass.students);
   
@@ -111,14 +112,12 @@ export const MarksEntryList = ({seqClass}: MarksEntryListProps) => {
     
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const seqClassToSave = {
         ...seqClass,
         students: savedStudents
     }
-    const savedMarks = await saveMarks(seqClassToSave); 
-    console.log('Saved class ', savedMarks);
-      
+    submitMarks(seqClassToSave);   
   }
 
   return (

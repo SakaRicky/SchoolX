@@ -8,4 +8,4 @@ export {
 
 export { saveStudent } from './student';
 
-export { saveTeacher } from './teacher';
+export { saveUser, getUser } from './user';
