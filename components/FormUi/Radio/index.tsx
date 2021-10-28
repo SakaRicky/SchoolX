@@ -1,4 +1,4 @@
-import * as React from "react";
+import { ChangeEvent, } from "react";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -15,7 +15,7 @@ export const RadioWrapper = ({name}: RadioProps) => {
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setFieldValue(name, value);
     }

@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect } from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -69,7 +69,7 @@ const FORM_VALIDATION = yup.object().shape({
     mothers_phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+export const AddStudentForm = ({handleSubmit}: AddStudentProps) => {
     const [allClasses, setAllClasses] = useState<ClassType[]>([]);
     const classes = useStyles();
 

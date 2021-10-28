@@ -1,9 +1,8 @@
-import { NewStudent } from "types";
 import axios from "axios";
 import { NewTeacher, LoggedUser } from "types";
 
 
-const baseURL = 'http://localhost:5000/';
+const baseURL = process.env.HOST;
 
 export const saveUser = async (newUser: NewTeacher) => {
     const res = await axios.post(`${baseURL}teachers`, newUser)

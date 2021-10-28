@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { Typography, makeStyles } from "@material-ui/core";
 import ClassList from "components/ClassList";
 import { getClassList, getAllClasses } from 'services';
@@ -59,7 +59,7 @@ const ClassListPage = () => {
         fetchAllClasses();
     }, [])
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setClassToFetch(event.target.value);
     }    
 

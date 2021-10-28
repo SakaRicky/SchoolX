@@ -1,12 +1,3 @@
-// export {
-//     AddStudentForm,
-//     AddTeacherForm,
-//     AddTeacherForm,
-//     FlashNotification,
-//     Layout,
-//     Login
-// } from 'components';
-
 export { AddStudentForm } from 'components/AddStudenForm';
 export { AddTeacherForm } from 'components/AddTeacherForm';
 export { FlashNotification } from 'components/FlashNotification';

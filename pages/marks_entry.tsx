@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import { 
     Grid,
     MenuItem,
@@ -73,11 +73,11 @@ const MarksEntry = () => {
         sequence && fetchClassList(); // Only fetch for classes when there is a sequence
     }, [classToFetch])
 
-    const setChoosedSequence = (event: React.ChangeEvent<HTMLInputElement>) => {        
+    const setChoosedSequence = (event: ChangeEvent<HTMLInputElement>) => {        
         setSequence(event.target.value);
     }
 
-    const setChoosedClass = (event: React.ChangeEvent<HTMLInputElement>) => {        
+    const setChoosedClass = (event: ChangeEvent<HTMLInputElement>) => {        
         setClassToFetch(event.target.value);
     }
 
