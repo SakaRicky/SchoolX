@@ -30,13 +30,10 @@ export interface Teacher {
 
 export interface LoggedUser {
     email: string,
-<<<<<<< HEAD
-    password: string,
-    remember: boolean
-=======
+    password?: string,
+    remember?: boolean
     name: string,
     token?: string
->>>>>>> feat: imported the state and made new type
 }
 
 export type NewStudent = Omit<Student, 'id' | 'class_code'>;

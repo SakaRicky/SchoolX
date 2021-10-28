@@ -97,7 +97,7 @@ const useStyles = makeStyles(theme => ({
   
 }), { name: 'MuiLayoutComponent' });
 
-const Layout = ({children}: LayoutProps) => {
+export const Layout = ({children}: LayoutProps) => {
     const [state] = useStateValue();    
 
     const classes = useStyles();
@@ -233,5 +233,3 @@ const Layout = ({children}: LayoutProps) => {
         
     )
 }
-
-export default Layout;
