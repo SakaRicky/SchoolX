@@ -4,7 +4,6 @@ import ClassList from "components/ClassList";
 import classListServices from 'services/classList';
 import { TextField, MenuItem, Grid } from '@material-ui/core';
 import { ClassListType, ClassType } from 'types';
-import SelectWrapper from 'components/FormUi/Select';
 
 const useStyles = makeStyles(theme => {
     return {

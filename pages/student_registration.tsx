@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import AddStudentForm from 'components/AddStudenForm';
+import {AddStudentForm, FlashNotification} from 'components';
 import { NewStudent } from "types";
 import studentServices from "services/student";
-import FlashNotification from "components/FlashNotification";
 import { Notify } from 'types';
 
 const StudentRegistration = () => {
