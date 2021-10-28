@@ -18,6 +18,13 @@ export interface StudentOnClassList extends Student {
     number: number
 }
 
+export interface StudentOnMarksEntry {
+    id: string, // for now used as matricule
+    names: string,
+    marks: number
+    
+}
+
 export interface Teacher {
     id: string,
     first_name: string,
@@ -32,7 +39,7 @@ export interface LoggedUser {
     email: string,
     password?: string,
     remember?: boolean
-    name: string,
+    name?: string,
     token?: string
 }
 
@@ -63,4 +70,10 @@ export interface ClassType {
     id: string,
     code: string,
     name: string
+}
+
+export interface MarksEntryListType {
+    id: string,
+    nameOfClass: string,
+    students: StudentOnMarksEntry[]
 }

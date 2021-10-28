@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { Typography, makeStyles } from "@material-ui/core";
 import ClassList from "components/ClassList";
-import classListServices from 'services/classList';
+import { getClassList, getAllClasses } from 'services';
 import { TextField, MenuItem, Grid } from '@material-ui/core';
 import { ClassListType, ClassType } from 'types';
 
@@ -34,7 +34,7 @@ const ClassListPage = () => {
     useEffect(() => {
         const getCurrentClassList = async() => {
             try {
-                const list = await classListServices.getClassList(classToFetch);                
+                const list = await getClassList(classToFetch);                
                 setCurrentClassList(list);
             } catch (error: any) {
                 console.log(error);
@@ -47,19 +47,19 @@ const ClassListPage = () => {
     }, [classToFetch])
 
     useEffect(() => {
-        const getAllClasses = async() => {
+        const fetchAllClasses = async() => {
             try {
-                const allClasslist: ClassType[] = await classListServices.getAllClasses();                
+                const allClasslist: ClassType[] = await getAllClasses();                
                 setAllClassLists(allClasslist);
             } catch (error: any) {
                 console.log(error);
             }
             
         }
-        getAllClasses();
+        fetchAllClasses();
     }, [])
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setClassToFetch(event.target.value);
     }    
 

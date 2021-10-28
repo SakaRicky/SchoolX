@@ -1,20 +1,20 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 import { TextField, MenuItem } from '@material-ui/core';
 import { useField, useFormikContext } from 'formik';
-import { ClassListType, ClassType } from 'types';
+import { ClassType } from 'types';
 
 interface SelectProps {
     name: string,
     options: ClassType[]
     label: string,
-    handleChangeParent?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleChangeParent?: (event: ChangeEvent<HTMLInputElement>) => void
 }
-export const SelectWrapper: React.FC<SelectProps> = ({name, options, label, handleChangeParent}: SelectProps) => {
+export const SelectWrapper = ({name, options, label, handleChangeParent}: SelectProps) => {
 
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setFieldValue(name, value);
     }

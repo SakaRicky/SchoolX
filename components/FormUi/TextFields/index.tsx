@@ -5,6 +5,7 @@ interface TextFieldProps {
     name: string,
     label: string,
     fullWidth?: boolean,
+    variant?: 'filled'| 'outlined' | 'standard'
 };
 
 interface configTextField {
@@ -12,16 +13,18 @@ interface configTextField {
     fullWidth?: boolean,
     error?: boolean,
     helperText?: string
+    variant: 'filled'| 'outlined' | 'standard'
 }
 
-export const TextFieldWrapper = ({name, label, fullWidth}: TextFieldProps) => {
+export const TextFieldWrapper = ({name, label, fullWidth, variant}: TextFieldProps) => {
     
     const [field, meta] = useField(name);
 
     const configTextField: configTextField = {
         ...field,
-        fullWidth,
-        label
+        fullWidth: !!fullWidth ? fullWidth : true,
+        label,
+        variant: !!variant ? variant : 'standard'
     }    
 
     if (meta && meta.touched && meta.error) {

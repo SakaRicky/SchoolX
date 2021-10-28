@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect } from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -16,7 +16,7 @@ import {
     RadioWrapper,
     ButtonWrapper,
 } from 'components/FormUi';
-import classListServices from 'services/classList';
+import { getAllClasses } from 'services';
 
 
 interface AddStudentProps {
@@ -69,14 +69,14 @@ const FORM_VALIDATION = yup.object().shape({
     mothers_phone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentProps) => {
+export const AddStudentForm = ({handleSubmit}: AddStudentProps) => {
     const [allClasses, setAllClasses] = useState<ClassType[]>([]);
     const classes = useStyles();
 
     useEffect(() => {
         const fetchClasses = async () => {
             try {
-                const allClasses: ClassType[] = await classListServices.getAllClasses();
+                const allClasses: ClassType[] = await getAllClasses();
                 setAllClasses(allClasses);
             } catch (error: any) {
                 console.log(error);
@@ -111,6 +111,7 @@ export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentPr
                                     <TextFieldWrapper
                                         name="first_name"
                                         label="First Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
 
@@ -118,6 +119,7 @@ export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentPr
                                     <TextFieldWrapper 
                                         name="last_name"
                                         label="Last Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
 
@@ -146,18 +148,21 @@ export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentPr
                                     <TextFieldWrapper 
                                         name="fathers_name"
                                         label="Fathers Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <TextFieldWrapper 
                                         name="fathers_phone"
                                         label="Fathers Pnone Number"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextFieldWrapper 
                                         name="fathers_occupation"
                                         label="Fathers Occupation"
+                                        variant="outlined"
                                     />
                                 </Grid>
 
@@ -165,18 +170,21 @@ export const AddStudentForm: FC<AddStudentProps> = ({handleSubmit}: AddStudentPr
                                     <TextFieldWrapper 
                                         name="mothers_name"
                                         label="Mothers Name"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <TextFieldWrapper 
                                         name="mothers_occupation"
                                         label="Mothers Occupation"
+                                        variant="outlined"
                                     />
                                 </Grid>
                                 <Grid item xs={12} md={6}>
                                     <TextFieldWrapper 
                                         name="mothers_phone"
                                         label="Mothers Phone Number"
+                                        variant="outlined"
                                     />
                                 </Grid>
                             </Grid>
