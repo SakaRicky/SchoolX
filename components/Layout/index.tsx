@@ -24,6 +24,7 @@ import FormatLineSpacingIcon from '@material-ui/icons/FormatLineSpacing';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import CloseIcon from '@material-ui/icons/Close';
+import { useStateValue } from 'state';
 
 import { stringAvatar } from 'utils'
 
@@ -96,8 +97,8 @@ const useStyles = makeStyles(theme => ({
   
 }), { name: 'MuiLayoutComponent' });
 
-
-export const Layout = ({children}: LayoutProps) => {
+const Layout = ({children}: LayoutProps) => {
+    const [state] = useStateValue();    
 
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -175,8 +176,8 @@ export const Layout = ({children}: LayoutProps) => {
                         SchoolX
                     </Typography>
                     <div className={classes.profile}>
-                        <Typography className={classes.username}>username</Typography>
-                        <Avatar {...stringAvatar('User Name')} />
+                        <Typography className={classes.username}>{state.user && state.user.name}</Typography>
+                        <Avatar {...stringAvatar(state.user ? state.user.name : "Test User")} />
                     </div>
                 </Toolbar>
             </AppBar>
@@ -231,4 +232,6 @@ export const Layout = ({children}: LayoutProps) => {
       </div>
         
     )
-};
+}
+
+export default Layout;

@@ -8,6 +8,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { useRouter } from 'next/router'
 
+import { StateProvider } from 'state';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   
@@ -24,11 +25,15 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
     );
   };
   return (
-    <ThemeProvider theme={theme}>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        {getContent()}
-      </MuiPickersUtilsProvider>
-    </ThemeProvider>
+    <StateProvider>
+      <ThemeProvider theme={theme}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+          </MuiPickersUtilsProvider>
+      </ThemeProvider>
+    </StateProvider>
   )
 }
 
