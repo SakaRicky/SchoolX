@@ -6,7 +6,7 @@ interface DatePickerProps {
     label: string
 }
 
-const DatePickerWrapper = ({name, label}: DatePickerProps) => {
+export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     
     const [field, meta] = useField(name);
 
@@ -29,6 +29,4 @@ const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     return (
         <TextField {...configDatePicker}/>
     )
-}
-
-export default DatePickerWrapper;
+};

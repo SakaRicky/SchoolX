@@ -3,26 +3,33 @@ import { useField } from "formik";
 
 interface TextFieldProps {
     name: string,
-    label: string
+    label: string,
+    fullWidth?: boolean,
+};
+
+interface configTextField {
+    label: string,
+    fullWidth?: boolean,
+    error?: boolean,
+    helperText?: string
 }
 
-const TextFieldWrapper = ({name, label}: TextFieldProps) => {
+export const TextFieldWrapper = ({name, label, fullWidth}: TextFieldProps) => {
     
     const [field, meta] = useField(name);
 
-    const configTextField: any = {
+    const configTextField: configTextField = {
         ...field,
-        label,
-    }
+        fullWidth,
+        label
+    }    
 
     if (meta && meta.touched && meta.error) {
         configTextField.error = true;
         configTextField.helperText = meta.error;
-    }
+    }    
 
     return (
-        <TextField fullWidth variant="outlined" {...configTextField}/>
+        <TextField {...configTextField}/>
     )
-}
-
-export default TextFieldWrapper;
+};

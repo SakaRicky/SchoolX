@@ -24,6 +24,12 @@ export interface Teacher {
     phone: number | string
 }
 
+export interface LoggedUser {
+    email: string,
+    password: string,
+    remember: boolean
+}
+
 export type NewStudent = Omit<Student, 'id' | 'class_code'>;
 
 export type NewTeacher = Omit<Teacher, 'id'>;

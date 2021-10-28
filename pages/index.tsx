@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Typography, Button } from '@material-ui/core';
+import { Login } from 'components';
 
 const Home: NextPage = () => {
   return (
@@ -12,10 +12,7 @@ const Home: NextPage = () => {
         </Head>
 
         <main>
-          <Typography variant="h6" color="primary">
-            Welcome to SchoolX App
-          </Typography>
-          <Button variant="contained" color="secondary">Create</Button>
+          <Login />
         </main>
       </div>      
   )
