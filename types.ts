@@ -4,7 +4,7 @@ export interface Student {
     last_name: string,
     date_of_birth: string,
     gender: string,
-    class: string,
+    class_name: string,
     class_code: string,
     fathers_name: string,
     fathers_phone: string,

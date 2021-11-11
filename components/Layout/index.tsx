@@ -25,8 +25,9 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import CloseIcon from '@material-ui/icons/Close';
 import { useStateValue } from 'state';
+import { CgUserList } from 'react-icons/cg';
 
-import { stringAvatar } from 'utils'
+import { stringAvatar } from 'utils';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -37,6 +38,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     [theme.breakpoints.up('md')]: {
         display: 'flex',
+        backgroundColor: '#f0f7f7' 
     }
   },
   drawer: {
@@ -66,17 +68,32 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
-    minWidth: `calc(100% - ${drawerWidth}px)`
+    minWidth: `calc(100% - ${drawerWidth}px)`,
+
+    // [theme.breakpoints.down('sm')]: {
+    //     minWidth: '100%',
+    // }
+
   },
   content: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(10),
+
+    [theme.breakpoints.down('sm')]: {
+        width: '100%',
+        padding: theme.spacing(2),
+    }
   },
   closeMenuButton: {
     marginRight: 'auto',
     marginLeft: 0,
   },
   active: {
-      backgroundColor: theme.palette.secondary.light
+      backgroundColor: theme.palette.primary.light,
+      color: "#fff",
+
+      "&:hover": {
+        backgroundColor: theme.palette.primary.main,
+      }
   },
   navItem : {
     marginTop: theme.spacing(3)
@@ -91,6 +108,7 @@ const useStyles = makeStyles(theme => ({
   },
   footer: {
       display: "flex",
+      width: "100%",
       alignItems: "center",
       justifyContent: "center",
       marginTop: "auto",
@@ -137,6 +155,11 @@ export const Layout = ({children}: LayoutProps) => {
             path: '/class_list',
             icon: <FormatLineSpacingIcon />
         },
+        {
+            text: "Teachers List",
+            path: '/teachers',
+            icon: <CgUserList />
+        },
     ]
     const pushAndCloseDrawer = (path: string) => {
         router.push(path);
@@ -153,7 +176,7 @@ export const Layout = ({children}: LayoutProps) => {
                         onClick={() => pushAndCloseDrawer(item.path)}
                         className={`${classes.navItem} ${router.pathname === item.path ? classes.active : undefined}`}
                     >
-                        <ListItemIcon>{item.icon}</ListItemIcon>
+                        <ListItemIcon style={{fontSize:"25px"}}>{item.icon}</ListItemIcon>
                         <ListItemText primary={item.text} />
                     </ListItem>
                 ))}
@@ -167,13 +190,13 @@ export const Layout = ({children}: LayoutProps) => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.appToolbar}>
                     <IconButton
-                    color="inherit"
-                    aria-label="Open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    className={classes.menuButton}
-                >
-                    <MenuIcon />
+                        color="inherit"
+                        aria-label="Open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        className={classes.menuButton}
+                    >
+                        <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
                         SchoolX
@@ -232,6 +255,7 @@ export const Layout = ({children}: LayoutProps) => {
                     </Typography>
                 </footer>
             </div>
+            
       </div>
         
     )

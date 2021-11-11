@@ -17,9 +17,9 @@
     },
     {
       "id": "2",
-      "first_name": "John",
+      "first_name": "John Edited",
       "last_name": "Paul",
-      "date_of_birth": "20/05/2020",
+      "date_of_birth": "2021-11-12",
       "gender": "male",
       "class_name": "Form 4 A",
       "class_code": "F1B",
@@ -28,7 +28,8 @@
       "fathers_occupation": "Worker",
       "mothers_name": "Ijk Lmn",
       "mothers_phone": "987654321",
-      "mothers_occupation": "House Wife"
+      "mothers_occupation": "House Wife",
+      "class": "f2"
     },
     {
       "id": "3",
@@ -128,10 +129,19 @@
       "phone": "12345678"
     },
     {
-      "first_name": "John",
-      "last_name": "Paul",
+      "id": "2",
+      "first_name": "Saka",
+      "last_name": "Rheine",
+      "date_of_birth": "12/12/2020",
+      "gender": "female",
+      "email": "saka@ricky.com",
+      "phone": "12345678"
+    },
+    {
+      "first_name": "Jehn",
+      "last_name": "Paullette",
       "date_of_birth": "2021-10-03",
-      "gender": "male",
+      "gender": "female",
       "email": "john@paul.com",
       "phone": "12345678",
       "id": "CdsV40V"

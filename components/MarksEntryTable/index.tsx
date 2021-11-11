@@ -51,7 +51,13 @@ const useStyles = makeStyles(theme => {
         maxHeight: '100%',
       },
       tableHead: {
-          fontWeight: 900
+          fontWeight: 900,
+          backgroundColor: theme.palette.primary.light,
+          color: "#fff",
+          textAlign: "center",
+      },
+      tableCell: {
+        textAlign: "center",
       },
       submit: {
           display: 'flex',
@@ -124,7 +130,7 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
-          <TableHead>
+          <TableHead >
             <TableRow>
               {columns.map((column) => (
                 <TableCell
@@ -146,13 +152,13 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
                     
                     if (idx === 3) {                                              
                         return (
-                            <TableCell key={column.detail}>
+                            <TableCell key={column.detail} className={classes.tableCell}>
                                 <TextField variant="outlined" value={value} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, student)} />
                             </TableCell>
                         )
                     }
                     return (
-                      <TableCell key={column.detail}>
+                      <TableCell key={column.detail} className={classes.tableCell}>
                         {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );
