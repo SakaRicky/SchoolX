@@ -31,7 +31,7 @@ const StudentPage = () => {
             }  
         }
         fetchStudent()
-    }, [student])
+    }, [])
 
     const handleEdit = () => {
         setOpenModal(true);
