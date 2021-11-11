@@ -1,0 +1,104 @@
+.root {
+    background-color: inherit;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    @media screen and (max-width: 600px) {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.photo {
+    background-color: white;
+    border-radius: 25px;
+    height: 300px;
+    width: 250px;
+    position: relative;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar {
+    height: 250px;
+    width: 250px;
+    position: relative;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.photoName {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.detailWrapper {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+
+    @media screen and (max-width: 600px) {
+        // height: 100%;
+        width: 100%;
+        margin: 20px 0px;
+    }
+}
+
+.details {
+    height: 700px;
+    width: 700px;
+    padding-left: 20px;
+
+    div {
+        border-bottom: 1px solid rgb(209, 207, 207);
+        padding: 19px;
+
+        strong {
+            width: 500px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        // height: 100%;
+        width: auto;
+    }
+}
+
+.detail {
+    display: flex;
+}
+
+.label {
+    width: 300px;
+    font-weight: 900;
+}
+
+.editIcon {
+    border-radius: 50%;
+    background-color: #f0e6bd;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

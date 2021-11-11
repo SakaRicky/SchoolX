@@ -11,7 +11,7 @@ import {
   Toolbar
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { getUser } from 'services';
+import { logUser } from 'services';
 import { useRouter } from 'next/router';
 import { LoggedUser } from 'types';
 import { Form, Formik } from 'formik';
@@ -44,7 +44,7 @@ export const Login = () => {
   const handleSubmit = async (data: LoggedUser) => {
         
     try {
-      const loggedUser = await getUser(data);
+      const loggedUser = await logUser(data);
       router.push('/dashboard');
       } catch (error: any) {
         console.log(error);

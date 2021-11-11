@@ -6,6 +6,6 @@ export {
     saveMarks
 } from './classList';
 
-export { saveStudent } from './student';
+export { saveStudent, getStudent, updateStudent } from './student';
 
-export { saveUser, getUser } from './user';
+export { saveUser, getUser, getUsers, logUser, updateUser } from './user';

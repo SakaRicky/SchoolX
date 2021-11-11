@@ -1,3 +1,5 @@
+import { EditStudentForm } from './EditStudent';
+
 export { AddStudentForm } from 'components/AddStudenForm';
 export { AddTeacherForm } from 'components/AddTeacherForm';
 export { FlashNotification } from 'components/FlashNotification';
@@ -13,3 +15,6 @@ export {
     SelectWrapper,
     TextFieldWrapper
 } from 'components/FormUi';
+export { Table } from 'components/Table';
+export { EditStudentForm } from 'components/EditStudent';
+export { EditTeacherForm } from 'components/EditTeacherForm';
