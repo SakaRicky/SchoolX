@@ -4,6 +4,8 @@ import ClassList from "components/ClassList";
 import { getClassList, getAllClasses } from 'services';
 import { TextField, MenuItem, Grid } from '@material-ui/core';
 import { ClassListType, ClassType } from 'types';
+import styles from 'styles/students.module.scss';
+import { Button } from 'components';
 
 const useStyles = makeStyles(theme => {
     return {
@@ -64,31 +66,36 @@ const ClassListPage = () => {
     }    
 
     return (
-        <div className={classes.root}>
+        <div className={styles.root}>
 
-            <div className={classes.heading}>
-                <Typography variant="h4">
-                    Class List
-                </Typography>
-            </div>
+            <Typography className={styles.heading} variant="h4">
+                List of Students
+            </Typography>
 
-            <Grid container spacing={2} className={classes.selectClass}>
-                <Grid item xs={12} sm={6} md={4}>
-                    <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Class" onChange={handleChange}>
-                        {allClassLists.map(classList => {                
-                            return (
-                                <MenuItem key={classList.id} value={classList.id}>
-                                    {classList.name}
-                                </MenuItem>
-                            )
-                        })}
-                    </TextField>
-                </Grid>
+            <Grid container className={styles.content}>
+                {/* <div className={styles.inputs}> */}
+                    <Grid item xs={12} sm={6} className={styles.selectTextField}>
+                        <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Class" onChange={handleChange}>
+                            {allClassLists.map(classList => {                
+                                return (
+                                    <MenuItem key={classList.id} value={classList.id}>
+                                        {classList.name}
+                                    </MenuItem>
+                                )
+                            })}
+                        </TextField>
+                        <p><small>* Select a class to view students</small></p>
+                    </Grid>
+                    <Grid item className={styles.button}><Button label="Add Student"/></Grid>
+                {/* </div> */}
+            
+                
             </Grid>
 
-            <hr />
+            <div className={styles.table}>
+                {currentClassList && <ClassList classList={currentClassList?.students}/>}
+            </div>
             
-            {currentClassList && <ClassList classList={currentClassList?.students}/>}
 
         </div>
     );

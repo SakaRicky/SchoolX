@@ -8,6 +8,7 @@ import { Table } from 'components'
 const useStyles = makeStyles(theme => {
     return {
         root: {
+            color: '#fff',
             height: "550px",
             width: "100%",
             paddingTop: theme.spacing(5)
@@ -42,7 +43,7 @@ const Teachers = () => {
   }, [])  
 
 return (
-  <div className={styles.root}>
+  <div style={{backgroundColor: '#fff'}} className={styles.root}>
     <Typography variant="h3">List of Teacher</Typography>
     {teachers && <Table tableData={teachers}/>}
   </div>

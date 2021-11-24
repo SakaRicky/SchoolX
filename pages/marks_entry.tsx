@@ -15,15 +15,31 @@ import { Notify } from 'types';
 const useStyles = makeStyles(theme => {
     return {
         root: {
-            marginTop: theme.spacing(2)
-        },
-        selectClass: {
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(1)
+            marginTop: '5rem',
         },
         heading: {
             display: "flex",
             justifyContent: "center",
+            fontSize: '2.5rem'
+        },
+        inputs: {
+            backgroundColor: "#fff",
+            padding: theme.spacing(2),
+            borderRadius: '15px'
+        },
+        selectClass: {
+            marginTop: theme.spacing(1),
+            marginBottom: theme.spacing(1),
+            
+        },
+        menuItem: {
+            color: theme.palette.myGrey[800]
+        },
+        table: {
+            marginTop: theme.spacing(2),
+            padding: theme.spacing(2),
+            backgroundColor: "#fff",
+
         }
     }
 });
@@ -99,41 +115,41 @@ const MarksEntry = () => {
     }
 
     return (
-        <div>
+        <div className={classes.root}>
             <FlashNotification notify={notify} setNotify={setNotify} />
-            <Typography variant="h6">
-                Marks Entry
-            </Typography>
+            <h1 className={classes.heading}>Mark Entry</h1>
 
-            <Grid container spacing={2} className={classes.selectClass}>
-                <Grid item xs={12} sm={6} md={4}>
-                    <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Sequence" onChange={setChoosedSequence}>
-                        {SEQUENCES.map(sequence => {
-                            return (
-                                <MenuItem key={sequence.code} value={sequence.code}>
-                                    {sequence.label}
-                                </MenuItem>
-                            )
-                        })}
-                    </TextField>
+            <div className={classes.inputs}>
+                <Grid container spacing={2} className={classes.selectClass}>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Sequence" onChange={setChoosedSequence}>
+                            {SEQUENCES.map(sequence => {
+                                return (
+                                    <MenuItem className={classes.menuItem} key={sequence.code} value={sequence.code}>
+                                        {sequence.label}
+                                    </MenuItem>
+                                )
+                            })}
+                        </TextField>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid container spacing={2} className={classes.selectClass}>
-                <Grid item xs={12} sm={6} md={4}>
-                    <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Class" onChange={setChoosedClass}>
-                        {allClasses.map(currentClass => {                
-                            return (
-                                <MenuItem key={currentClass.id} value={currentClass.id}>
-                                    {currentClass.name}
-                                </MenuItem>
-                            )
-                        })}
-                    </TextField>
+                <Grid container spacing={2} className={classes.selectClass}>
+                    <Grid item xs={12} sm={6} md={4}>
+                        <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Class" onChange={setChoosedClass}>
+                            {allClasses.map(currentClass => {                
+                                return (
+                                    <MenuItem className={classes.menuItem} key={currentClass.id} value={currentClass.id}>
+                                        {currentClass.name}
+                                    </MenuItem>
+                                )
+                            })}
+                        </TextField>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </div>
 
-            <div>
+            <div className={classes.table}>
                 {marksEntryList && <MarksEntryTable submitMarks={handleSubmitMarks} seqClass={marksEntryList}/>}
             </div>
         </div>

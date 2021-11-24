@@ -18,16 +18,12 @@ import {
 } from '@material-ui/core';
 
 import MenuIcon from '@material-ui/icons/Menu';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
-import FormatLineSpacingIcon from '@material-ui/icons/FormatLineSpacing';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import CloseIcon from '@material-ui/icons/Close';
 import { useStateValue } from 'state';
-import { CgUserList } from 'react-icons/cg';
 
 import { stringAvatar } from 'utils';
+import styles from 'styles/layout.module.scss';
+import { navCategories } from './navData';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -35,13 +31,10 @@ interface LayoutProps {
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
-  root: {
-    [theme.breakpoints.up('md')]: {
-        display: 'flex',
-        backgroundColor: '#f0f7f7' 
-    }
-  },
+    
   drawer: {
+      color: '#fff',
+
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
@@ -49,6 +42,9 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: theme.palette.primary[600],
+    color: '#fff',
+
   },
   appToolbar: {
     display: "flex",
@@ -62,41 +58,27 @@ const useStyles = makeStyles(theme => ({
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    width: drawerWidth
-  },
-  contentArea: {
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-    minWidth: `calc(100% - ${drawerWidth}px)`,
-
-    // [theme.breakpoints.down('sm')]: {
-    //     minWidth: '100%',
-    // }
-
-  },
-  content: {
-    padding: theme.spacing(10),
-
-    [theme.breakpoints.down('sm')]: {
-        width: '100%',
-        padding: theme.spacing(2),
-    }
+    width: drawerWidth,
+    backgroundColor: theme.palette.primary[600]
   },
   closeMenuButton: {
     marginRight: 'auto',
     marginLeft: 0,
   },
   active: {
-      backgroundColor: theme.palette.primary.light,
-      color: "#fff",
+      backgroundColor: theme.palette.primary[700],
 
       "&:hover": {
         backgroundColor: theme.palette.primary.main,
       }
   },
   navItem : {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    color: '#fff',
+
+    [theme.breakpoints.down('sm')]: {
+        marginTop: theme.spacing(1),
+    }
   },
   profile: {
       display: "flex",
@@ -105,15 +87,6 @@ const useStyles = makeStyles(theme => ({
   },
   username: {
       marginRight: "5px"
-  },
-  footer: {
-      display: "flex",
-      width: "100%",
-      alignItems: "center",
-      justifyContent: "center",
-      marginTop: "auto",
-      backgroundColor: theme.palette.grayYellow.main,
-      height: theme.spacing(10),
   },
   
 }), { name: 'MuiLayoutComponent' });
@@ -129,42 +102,10 @@ export const Layout = ({children}: LayoutProps) => {
         setMobileOpen(!mobileOpen)
     }
 
-    const navCategories = [
-        {
-            text: "Dashboard",
-            path: '/dashboard',
-            icon: <DashboardIcon />
-        },
-        {
-            text: "Marks",
-            path: '/marks_entry',
-            icon: <FormatListNumberedIcon />
-        },
-        {
-            text: "Student Registration",
-            path: '/student_registration',
-            icon: <GroupAddIcon />
-        },
-        {
-            text: "Teacher Registration",
-            path: '/teacher_registration',
-            icon: <PersonAddIcon />
-        },
-        {
-            text: "Class List",
-            path: '/class_list',
-            icon: <FormatLineSpacingIcon />
-        },
-        {
-            text: "Teachers List",
-            path: '/teachers',
-            icon: <CgUserList />
-        },
-    ]
     const pushAndCloseDrawer = (path: string) => {
         router.push(path);
         setMobileOpen(false)
-    }    
+    }
     
     const drawer = (
         <div>
@@ -172,12 +113,12 @@ export const Layout = ({children}: LayoutProps) => {
                 {navCategories.map((item) => (
                     <ListItem
                         button 
-                        key={item.text} 
+                        key={item.label} 
                         onClick={() => pushAndCloseDrawer(item.path)}
                         className={`${classes.navItem} ${router.pathname === item.path ? classes.active : undefined}`}
                     >
-                        <ListItemIcon style={{fontSize:"25px"}}>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.text} />
+                        <ListItemIcon style={{fontSize:"25px", color:"#fff"}}>{<item.icon />}</ListItemIcon>
+                        <ListItemText primary={item.label} />
                     </ListItem>
                 ))}
             </List>
@@ -185,7 +126,7 @@ export const Layout = ({children}: LayoutProps) => {
     );
 
     return (
-        <div className={classes.root}>
+        <div className={styles.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.appToolbar}>
@@ -212,16 +153,16 @@ export const Layout = ({children}: LayoutProps) => {
                 {/* At sm screens and greater don't show this */}
                 <Hidden mdUp implementation="css">
                     <Drawer
-                    variant="temporary"
-                    anchor='left'
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
+                        variant="temporary"
+                        anchor='left'
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
                     >
                     <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
                         <CloseIcon/>
@@ -244,12 +185,12 @@ export const Layout = ({children}: LayoutProps) => {
                     </Drawer>  
                 </Hidden>
             </nav>
-            <div className={classes.contentArea}>
+            <div className={styles.contentArea}>
                 <div className={classes.toolbar} />
-                <div className={classes.content}>
+                <div className={styles.content}>
                     {children}
                 </div>
-                <footer className={classes.footer}>
+                <footer className={styles.footer}>
                     <Typography>
                         Copyright &copy; 2021
                     </Typography>
@@ -257,6 +198,6 @@ export const Layout = ({children}: LayoutProps) => {
             </div>
             
       </div>
-        
+
     )
 }

@@ -1,0 +1,41 @@
+@use './abstracts/colors.module';
+@use './abstracts/breakpoints.module';
+@use './abstracts/font.module';
+
+// @use './abstracts';
+
+.root {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: map-get(map-get($map: colors.$colors, $key: myGrey), 200);
+
+    .contentArea {
+    //     display: "flex",
+    // flexDirection: "column",
+    // minHeight: "100vh",
+        // min-width: calc(100% - 240px);
+        // margin: 9rem;
+        min-width: calc(100% - 240px);
+
+    }
+
+    .content {
+        background-color: transparent;
+        margin: 2rem;
+    }
+    
+    .footer {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-top: auto;
+        background-color: map-get(map-get($map: colors.$colors, $key: myGrey), 300);
+        height: 5rem;
+    };
+
+    @media (min-width: map-get($map: breakpoints.$breakpoints, $key: md)){
+        display: flex;
+    }
+};

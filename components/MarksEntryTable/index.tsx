@@ -45,19 +45,28 @@ const columns: Column[] = [
 const useStyles = makeStyles(theme => {
   return {
     root: {
-        width: '100%',
+        // width: '100%',
       },
       container: {
-        maxHeight: '100%',
+        // backgroundColor: theme.palette.secondary.main,
+        textAlign: "center",
+        // borderTopRightRadius: 15,
       },
-      tableHead: {
-          fontWeight: 900,
-          backgroundColor: theme.palette.primary.light,
-          color: "#fff",
-          textAlign: "center",
+      table: {
+
+          
       },
+      tableHeadCell: {
+        fontWeight: 'bold',
+        backgroundColor: theme.palette.secondary[200],
+        fontSize: '1rem',
+        color: theme.palette.secondary[900],
+        textAlign: "center",
+      },
+
       tableCell: {
         textAlign: "center",
+        color: theme.palette.myGrey[900]
       },
       submit: {
           display: 'flex',
@@ -67,8 +76,16 @@ const useStyles = makeStyles(theme => {
       submitButton: {
         backgroundColor: theme.palette.primary.light,
         color: "white",
+        borderRadius: '50px',
+        paddingInline: "2rem",
+        paddingBlock: "0.7rem",
+        transition: theme.transitions.create(['background-color', 'transform'], {
+          duration: theme.transitions.duration.standard,
+        }),
+
         "&:hover, &:focus": {
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: theme.palette.primary[700],
+            transform: 'scale(1.05)'
         }
       },
       space: {
@@ -127,14 +144,14 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
   }
 
   return (
-    <Paper className={classes.root}>
+    <div className={classes.root}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead >
+        <Table stickyHeader aria-label="sticky table" className={classes.table}>
+          <TableHead>
             <TableRow>
               {columns.map((column) => (
                 <TableCell
-                  className={classes.tableHead}
+                  className={classes.tableHeadCell}
                   key={column.detail}
                   style={{ minWidth: column.minWidth }}
                 >
@@ -169,12 +186,10 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
           </TableBody>
         </Table>
       </TableContainer>
-      <Grid className={classes.submit}>
-            <Grid item color="primary" xs={12} sm={4}>
-                <Button fullWidth className={classes.submitButton} onClick={handleSubmit}>Submit</Button>
-            </Grid>
-      </Grid>
+      <div className={classes.submit}>
+            <Button className={classes.submitButton} onClick={handleSubmit}>Submit</Button>
+      </div>
       <div className={classes.space} />
-    </Paper>
+    </div>
   );
 }

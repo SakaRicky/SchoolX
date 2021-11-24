@@ -1,0 +1,6 @@
+$font:'Poppins', sans-serif;
+
+// export this to be used in nextjs app
+:export {
+    font: $font;
+}

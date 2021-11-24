@@ -3,75 +3,74 @@ $small: 600px;
 $medium: 768px;
 $large: 992px;
 $extra-large: 1200px;
+@use './abstracts/colors.module';
+
 
 .root {
     margin-top: 25px;
     text-align: center;
+    padding: 1rem;
+    // height: 90vh;
+    
 
 }
 
 .tableWrapper {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    // max-width: 1200px;
+    // height: 100%;
+
 }
 
 .table {
     
     margin-top: 25px;
-
-    table { 
-        width: 95%;
-        border-collapse: collapse;
-    };
+    width: 100%;
+    height: 70vh;
 
     @media screen and (max-width: $small) {
         width: 100px;
     }
-
-    th {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        text-align: center;
-        background-color: #278878;
-        color: white;
-        border: 1px solid #ddd;
-    };
-
-    td {
-        padding-top: 15px;
-        text-align: center;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #ddd;
-    };
-
-    tr {
-        cursor: pointer;
-        color: rgb(16, 16, 65);
-        
-        // &:nth-child(even){background-color: #c2ae71;}
-        &:hover {background-color: #ddd;}
-    };
 }
 
 .filter {
     display: flex;
     max-width: 400px;
     position: relative;
+    color: map-get(map-get($map: colors.$colors, $key: secondary), 400);
+    position: relative;
+
+
+    .textField {
+        font-size: 1rem;
+        border: 3px solid map-get(map-get($map: colors.$colors, $key: myGrey), 600);
+        border-radius: 50px;
+        padding: 0.6rem;
+        width: 100%;
+        background-color: map-get(map-get($map: colors.$colors, $key: myGrey), 100);
+        outline: none;
+
+        &:focus, &:active {
+            border: 3px solid map-get(map-get($map: colors.$colors, $key: secondary), 800);
+            background-color: #fff;
+
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
 
     span {
         display: flex;
         align-items: center;
         position: absolute;
-        right: 0px;
-        bottom: 24px;
-        background-color: #f7f3e4;
+        right: 10px;
+        bottom: 0.6rem;
+        cursor: pointer;
 
         &:hover {
             font-weight: 900;
             color: #000;
-            cursor: pointer;
-            background-color: #f1db7f;
+            
         }
     }
 }

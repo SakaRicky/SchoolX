@@ -1,0 +1,14 @@
+$breakpoints: (
+    xs: '480px', //phone
+    sm: '600px', //tablet
+    md: '960px', //laptop
+    lg: '1280px', //desktop
+    xl: '1920px' //large desktop
+);
+
+@each $breakpoint, $value in $breakpoints {
+    :export {
+        #{unquote($breakpoint)}: $value
+    }
+}
+

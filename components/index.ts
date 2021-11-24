@@ -18,3 +18,4 @@ export {
 export { Table } from 'components/Table';
 export { EditStudentForm } from 'components/EditStudent';
 export { EditTeacherForm } from 'components/EditTeacherForm';
+export { Button } from 'components/Button';
