@@ -1,4 +1,4 @@
-import { TextField } from '@material-ui/core';
+import { makeStyles, TextField } from '@material-ui/core';
 import { useField } from "formik";
 
 interface DatePickerProps {
@@ -6,9 +6,19 @@ interface DatePickerProps {
     label: string
 }
 
+const useStyles = makeStyles(theme => {
+    return {
+        input: {
+            backgroundColor: theme.palette.white[100]
+        }
+    }
+})
+
 export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     
     const [field, meta] = useField(name);
+
+    const classes = useStyles();
 
     const configDatePicker: any = {
         ...field,
@@ -27,6 +37,11 @@ export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     }
 
     return (
-        <TextField {...configDatePicker}/>
+        <TextField
+            {...configDatePicker}
+            InputProps={{
+                className: classes.input
+            }}
+        />
     )
 };

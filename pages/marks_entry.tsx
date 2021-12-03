@@ -10,6 +10,7 @@ import {
 import { ClassType, MarksEntryListType } from "types";
 import { MarksEntryTable, FlashNotification } from "components";
 import { Notify } from 'types';
+import styles from 'styles/marksEntryPage.module.scss';
 
 
 const useStyles = makeStyles(theme => {
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => {
         inputs: {
             backgroundColor: "#fff",
             padding: theme.spacing(2),
-            borderRadius: '15px'
+            borderRadius: '10px'
         },
         selectClass: {
             marginTop: theme.spacing(1),
@@ -115,17 +116,17 @@ const MarksEntry = () => {
     }
 
     return (
-        <div className={classes.root}>
+        <div className={styles.root}>
             <FlashNotification notify={notify} setNotify={setNotify} />
-            <h1 className={classes.heading}>Mark Entry</h1>
+            <h1 className={styles.heading}>Mark Entry</h1>
 
-            <div className={classes.inputs}>
-                <Grid container spacing={2} className={classes.selectClass}>
+            <div className={styles.inputs}>
+                <Grid container spacing={2} className={styles.selectClass}>
                     <Grid item xs={12} sm={6} md={4}>
                         <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Sequence" onChange={setChoosedSequence}>
                             {SEQUENCES.map(sequence => {
                                 return (
-                                    <MenuItem className={classes.menuItem} key={sequence.code} value={sequence.code}>
+                                    <MenuItem className={styles.menuItem} key={sequence.code} value={sequence.code}>
                                         {sequence.label}
                                     </MenuItem>
                                 )
@@ -134,12 +135,12 @@ const MarksEntry = () => {
                     </Grid>
                 </Grid>
 
-                <Grid container spacing={2} className={classes.selectClass}>
+                <Grid container spacing={2} className={styles.selectClass}>
                     <Grid item xs={12} sm={6} md={4}>
                         <TextField variant="outlined" defaultValue="" fullWidth select label="Select a Class" onChange={setChoosedClass}>
                             {allClasses.map(currentClass => {                
                                 return (
-                                    <MenuItem className={classes.menuItem} key={currentClass.id} value={currentClass.id}>
+                                    <MenuItem className={styles.menuItem} key={currentClass.id} value={currentClass.id}>
                                         {currentClass.name}
                                     </MenuItem>
                                 )
@@ -149,7 +150,7 @@ const MarksEntry = () => {
                 </Grid>
             </div>
 
-            <div className={classes.table}>
+            <div className={styles.table}>
                 {marksEntryList && <MarksEntryTable submitMarks={handleSubmitMarks} seqClass={marksEntryList}/>}
             </div>
         </div>

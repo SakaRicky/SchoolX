@@ -56,7 +56,35 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+
+
+  contentArea: {
+        display: "flex",
+        flexDirection: "column",
+        minWidth: `calc(100% - drawerWidth)`,
+  },
   toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    backgroundColor: "transparent",
+    padding: "4rem",
+    maxWidth: "1400px",
+    margin: "auto",
+  },
+  footer: {
+    flexShrink: 0,
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    // marginTop: auto;
+    // background-color: map-get(map-get($map: colors.$colors, $key: myGrey), 300);
+    height: "5rem"
+  },
+
+
+
+
   drawerPaper: {
     width: drawerWidth,
     backgroundColor: theme.palette.primary[600]
@@ -186,7 +214,7 @@ export const Layout = ({children}: LayoutProps) => {
                 </Hidden>
             </nav>
             <div className={styles.contentArea}>
-                <div className={classes.toolbar} />
+                <div className={`${classes.toolbar} ${styles.toolbar}`} />
                 <div className={styles.content}>
                     {children}
                 </div>

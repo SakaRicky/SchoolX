@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
 import { useFormikContext } from "formik";
 
 interface ButtonProps {
@@ -6,11 +6,22 @@ interface ButtonProps {
     color: string,
     cancel?: boolean,
     fullWidth?: boolean,
+    closeModal?: () => void
 }
 
-export const ButtonWrapper = ({children, color, cancel, fullWidth}: ButtonProps) => {
+const useStyles = makeStyles(theme => {
+    return {
+        input: {
+            color: theme.palette.white[100]
+        }
+    }
+})
+
+export const ButtonWrapper = ({children, color, cancel, fullWidth, closeModal}: ButtonProps) => {
 
     const { submitForm, resetForm } = useFormikContext();
+
+    const classes = useStyles();
 
     const handleSubmit = () => {        
         submitForm()
@@ -18,6 +29,7 @@ export const ButtonWrapper = ({children, color, cancel, fullWidth}: ButtonProps)
 
     const handleCancel = () => {
         resetForm()
+        closeModal && closeModal()
     }
 
     const configButton: any = {
@@ -28,7 +40,10 @@ export const ButtonWrapper = ({children, color, cancel, fullWidth}: ButtonProps)
     }    
 
     return (
-        <Button {...configButton}  >
+        <Button
+            {...configButton}
+            
+        >
             {children}
         </Button>
     );

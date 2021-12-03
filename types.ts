@@ -27,6 +27,7 @@ export interface StudentOnMarksEntry {
 
 export interface Teacher {
     id: string,
+    subject: string,
     first_name: string,
     last_name: string,
     date_of_birth: string,

@@ -1,13 +1,16 @@
 import styles from 'styles/button.module.scss';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface ButtonProps {
     label: string
+    children: ReactNode
+    handleClick?: () => void
 }
 
-export const Button = ({label}: ButtonProps) => {
+export const Button = ({label, handleClick, children}: ButtonProps) => {
     return (
-        <button className={styles.button}>
+        <button onClick={handleClick} className={styles.button}>
+            {children}
             {label}
         </button>
     )

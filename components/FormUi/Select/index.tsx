@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { TextField, MenuItem } from '@material-ui/core';
+import { TextField, MenuItem, makeStyles } from '@material-ui/core';
 import { useField, useFormikContext } from 'formik';
 import { ClassType } from 'types';
 
@@ -9,10 +9,22 @@ interface SelectProps {
     label: string,
     handleChangeParent?: (event: ChangeEvent<HTMLInputElement>) => void
 }
+
+const useStyles = makeStyles(theme => {
+    return {
+        input: {
+            backgroundColor: theme.palette.white[100]
+        }
+    }
+})
+
+
 export const SelectWrapper = ({name, options, label, handleChangeParent}: SelectProps) => {
 
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
+
+    const classes = useStyles();
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
@@ -34,7 +46,12 @@ export const SelectWrapper = ({name, options, label, handleChangeParent}: Select
     }
     
     return (
-        <TextField {...configSelect}>
+        <TextField
+            InputProps={{
+                className: classes.input
+            }}
+            {...configSelect}
+        >
             {options.map((singleClass, idx) => {                
                 return (
                     <MenuItem key={idx} value={singleClass.code}>

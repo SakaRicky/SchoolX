@@ -4,6 +4,10 @@
     background-color: map-get(map-get($map: colors.$colors, $key: primary), 600);
     color: map-get($map: colors.$colors, $key: white);
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     border-radius: 50px;
     font-size: 1.2rem;
     font-weight: 700;

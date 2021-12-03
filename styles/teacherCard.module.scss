@@ -1,0 +1,59 @@
+@use './abstracts/colors.module';
+
+.root {
+    height: 10rem;
+    background-color: map-get($map: colors.$colors, $key: white);
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 2rem;
+    
+
+    .logo {
+        width: 30%;
+        height: 100%;
+        margin-right: 5px;
+        margin-left: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+            border-radius: 50%;
+        }
+    }
+
+    .details {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 0;
+            color: map-get(map-get($map: colors.$colors, $key: myGrey), $key: 900);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 5px;
+            margin-bottom: 0;
+            color: map-get(map-get($map: colors.$colors, $key: myGrey), $key: 600);
+        }
+
+        a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: map-get(map-get($map: colors.$colors, $key: myBlue), $key: 500);
+
+            &:visited {
+                color: map-get(map-get($map: colors.$colors, $key: myBlue), $key: 500);
+            }
+
+        }
+    }
+}

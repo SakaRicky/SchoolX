@@ -1,0 +1,35 @@
+@use './abstracts/colors.module';
+
+.root {
+    
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.inputs {
+    background-color: #fff;
+    padding: 2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.selectClass {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
+}
+
+.menuItem {
+    color: map-get(map-get($map: colors.$colors, $key: myGrey), 800);
+}
+
+.table {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #fff
+
+}

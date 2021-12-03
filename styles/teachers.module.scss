@@ -1,0 +1,20 @@
+@use './abstracts/colors.module';
+
+.root {
+    margin-top: 3rem;
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .content {
+        background-color: #fff;
+        padding: 2rem;
+    }
+}

@@ -1,7 +1,6 @@
 @use './abstracts/colors.module';
 
 .root {
-    
 
     .heading {
         display: flex;
@@ -29,6 +28,8 @@
 
     .table {
         background-color: map-get($map: colors.$colors, $key: white);
-        height: 100%;
+        margin-top: 25px;
+        padding: 2rem;
+        // height: 100%;
     }
 }

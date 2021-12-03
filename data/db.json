@@ -116,11 +116,27 @@
       "mothers_phone": "22555663",
       "mothers_occupation": "t4tt",
       "id": "7am0gl0"
+    },
+    {
+      "first_name": "faghrt",
+      "last_name": "ewhtgq",
+      "date_of_birth": "2021-11-13",
+      "gender": "female",
+      "class_name": "",
+      "fathers_name": "aehg",
+      "fathers_phone": "473837",
+      "fathers_occupation": "tsrath",
+      "mothers_name": "tyt4qu",
+      "mothers_phone": "7493",
+      "mothers_occupation": "t4tt",
+      "class": "f3",
+      "id": "pCIbE9t"
     }
   ],
   "teachers": [
     {
       "id": "1",
+      "subject": "Mathematics",
       "first_name": "Saka",
       "last_name": "Ricky",
       "date_of_birth": "12/12/2020",
@@ -130,6 +146,7 @@
     },
     {
       "id": "2",
+      "subject": "Computer Sc",
       "first_name": "Saka",
       "last_name": "Rheine",
       "date_of_birth": "12/12/2020",
@@ -139,6 +156,7 @@
     },
     {
       "first_name": "Jehn",
+      "subject": "Accountancy",
       "last_name": "Paullette",
       "date_of_birth": "2021-10-03",
       "gender": "female",
@@ -148,6 +166,7 @@
     },
     {
       "first_name": "Saka Keugeu",
+      "subject": "English",
       "last_name": "Clautaire",
       "date_of_birth": "2021-10-02",
       "gender": "male",
@@ -157,12 +176,33 @@
     },
     {
       "first_name": "Saka",
+      "subject": "French",
       "last_name": "Ricky",
       "date_of_birth": "2021-10-02",
       "gender": "male",
       "email": "sakaricky91@gmail.com",
       "phone": "698425147",
       "id": "Nkb-77_"
+    },
+    {
+      "first_name": "Prof",
+      "last_name": "Grand",
+      "subject": "",
+      "date_of_birth": "1996-08-17",
+      "gender": "female",
+      "email": "grandprof@teacher.com",
+      "phone": "1234567889",
+      "id": "wKm208k"
+    },
+    {
+      "first_name": "Prof",
+      "last_name": "Ens",
+      "subject": "",
+      "date_of_birth": "2021-11-06",
+      "gender": "female",
+      "email": "prof@ens.com",
+      "phone": "123456",
+      "id": "0efR1kP"
     }
   ],
   "classes": [

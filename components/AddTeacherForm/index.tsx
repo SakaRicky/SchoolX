@@ -23,7 +23,10 @@ interface AddTeacherProps {
 const useStyles = makeStyles((theme: Theme) => {
     return {
         root: {
-            marginTop: theme.spacing(8)
+            maxWidth: "900px",
+            margin: '0 auto',
+            marginTop: theme.spacing(20),
+            backgroundColor: theme.palette.myGrey[100]
         },
         formWrapper: {
             marginTop: theme.spacing(5),
@@ -46,6 +49,7 @@ const useStyles = makeStyles((theme: Theme) => {
 const INITIAL_FORM_STATE: NewTeacher = {
     first_name: "",
     last_name: "",
+    subject: "",
     date_of_birth: "",
     gender: "",
     email: "",

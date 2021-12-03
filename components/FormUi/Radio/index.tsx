@@ -5,15 +5,26 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { useField, useFormikContext } from "formik";
+import { makeStyles } from "@material-ui/core";
 
 interface RadioProps {
     name: string,
 }
 
+const useStyles = makeStyles(theme => {
+    return {
+        input: {
+            backgroundColor: theme.palette.white[100]
+        }
+    }
+})
+
 export const RadioWrapper = ({name}: RadioProps) => {
     
     const [field, meta] = useField(name);
     const { setFieldValue } = useFormikContext();
+
+    const classes = useStyles();
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
@@ -34,7 +45,14 @@ export const RadioWrapper = ({name}: RadioProps) => {
     return (
         <FormControl component="fieldset">
             <FormLabel component="legend">Gender</FormLabel>
-            <RadioGroup row aria-label="gender" {...configRadioGroup} >
+            <RadioGroup
+                row
+                aria-label="gender"
+                {...configRadioGroup}
+                inputprops={{
+                    className: classes.input
+                }}
+            >
                 <FormControlLabel value="female" control={<Radio color="primary" />} label="Female" />
                 <FormControlLabel value="male" control={<Radio color="primary" />} label="Male" />
             </RadioGroup>

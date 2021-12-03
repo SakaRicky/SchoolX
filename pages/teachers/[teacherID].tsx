@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Typography, Modal } from '@material-ui/core';
 import { Teacher } from 'types';
 import { getUser, updateUser } from 'services';
-import styles from 'styles/studentPage.module.scss'
+import styles from 'styles/teacherPage.module.scss'
 import Image from 'next/image'
 import EditIcon from '@material-ui/icons/Edit';
 import { EditTeacherForm } from 'components';
@@ -71,15 +71,15 @@ const TeacherPage = () => {
             </Modal>
             <div className={styles.root}>
                 {/* <Typography>Student View Info Page</Typography> */}
-                <div className={styles.photo}>
-                    <div className={styles.avatar}>
-                        <Image
-                            src={teacher?.gender === 'male' ? "/images/black-man.png" : "/images/woman.png"}
-                            alt="Student Image"
-                            layout='fill'
+                <div className={styles.profile}>
+                    <div className={styles.profile__img}>
+                      <Image
+                          src={teacher?.gender === 'male' ? "/images/black-man.png" : "/images/woman.png"}
+                          alt="Student Image"
+                          layout='fill'
                         />
-                    </div>
-                    <div className={styles.photoName}>
+                    </div>  
+                    <div className={styles.profile__text}>
                         <strong>{teacher?.first_name + " " + teacher?.last_name}</strong>
                     </div>
                 </div>

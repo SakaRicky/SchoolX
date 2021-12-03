@@ -1,7 +1,9 @@
+@use './abstracts/colors.module' as *;
+
 .root {
     max-width: 700px;
-    margin-top: 50px;
-    background-color: antiquewhite;
+    margin: auto;
+    background-color: map-get(map-get($map: $colors, $key: myGrey), $key: 100);
 
     @media screen and (max-width: 600px) {
         margin: 30px 0px;

@@ -6,7 +6,7 @@ import { Student } from 'types';
 import { getStudent, updateStudent } from 'services';
 import { useRouter } from 'next/router'
 import EditIcon from '@material-ui/icons/Edit';
-import { EditStudentForm } from 'components'; 
+import { EditStudentForm } from 'components';
 
 
 
@@ -17,14 +17,18 @@ const StudentPage = () => {
 
     const router = useRouter()
 
-    const { studentID } = router.query
+    const { studentID } = router.query;    
     
     useEffect(() => {
         const fetchStudent = async () => {
+            // to make sure the studentID is not undefined before
+            // we fetch for that student. This occurs because router.query
+            // first returns undefine when you refresh
             if (typeof studentID === 'string') {
                 try {
                     const receivedStudent: Student = await getStudent(studentID);
-                    setStudent(receivedStudent) 
+                    setStudent(receivedStudent)
+                    
                 } catch (error: any) {
                     console.log(error);
                 }
@@ -73,15 +77,15 @@ const StudentPage = () => {
             </Modal>
             <div className={styles.root}>
                 {/* <Typography>Student View Info Page</Typography> */}
-                <div className={styles.photo}>
-                    <div className={styles.avatar}>
+                <div className={styles.profile}>
+                    <div className={styles.profile__img}>
                         <Image
                             src="/images/boy.png"
                             alt="Student Image"
                             layout='fill'
                         />
                     </div>
-                    <div className={styles.photoName}>
+                    <div className={styles.profile__text}>
                         <strong>{student?.first_name + " " + student?.last_name}</strong>
                     </div>
                 </div>

@@ -26,15 +26,5 @@ export const navCategories = [
             label: "Teacher",
             path: '/teachers',
             icon: PersonAddIcon
-        },
-        // {
-        //     label: "Class List",
-        //     path: '/class_list',
-        //     icon: FormatLineSpacingIcon
-        // },
-        // {
-        //     label: "Teachers List",
-        //     path: '/teachers',
-        //     icon: CgUserList
-        // },
+        }
 ]

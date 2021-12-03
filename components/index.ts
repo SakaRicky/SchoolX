@@ -16,6 +16,9 @@ export {
     TextFieldWrapper
 } from 'components/FormUi';
 export { Table } from 'components/Table';
+export { ClassListTable } from 'components/ClassListTable';
 export { EditStudentForm } from 'components/EditStudent';
 export { EditTeacherForm } from 'components/EditTeacherForm';
 export { Button } from 'components/Button';
+export { SearchField } from 'components/SearchField';
+export { TeacherCard } from 'components/TeacherCard';

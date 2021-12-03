@@ -10,11 +10,13 @@ declare module '@material-ui/core/styles/createPalette' {
       danger: ColorPartial;
       blue: ColorPartial;
       myGrey: ColorPartial;
+      white: ColorPartial;
   }
   interface PaletteOptions {
     danger: ColorPartial;
     blue: ColorPartial;
     myGrey: ColorPartial;
+    white: ColorPartial;
   }
 }
 
@@ -33,7 +35,8 @@ const themeOptions: ThemeOptions = {
         600: '#4c8777',
         700: '#3f6b5e',
         800: '#385c50',
-        900: '#2a4137'
+        900: '#2a4137',
+        contrastText: "#fff" //button text white instead of black
 
       },
       secondary: {
@@ -91,6 +94,9 @@ const themeOptions: ThemeOptions = {
         700: '#6e6e6e',
         800: '#5c5c5c',
         900: '#4a4a4a'
+      },
+      white: {
+        100: "#fff"
       }
     },
     spacing: 8,

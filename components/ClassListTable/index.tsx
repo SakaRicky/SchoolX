@@ -3,10 +3,11 @@ import { Table } from 'components';
 import { Student, StudentOnClassList } from 'types';
 
 interface ClassListProps {
-    classList: Student[]
+    classList: Student[],
+    setSelectedStudents: (selectedStudents: StudentOnClassList[]) => void
 }
 
-const ClassList = ({classList}: ClassListProps) => {
+export const ClassListTable = ({classList, setSelectedStudents}: ClassListProps) => {
 
   classList.sort((student1, student2) => {
       const name1 = student1.first_name.toUpperCase();
@@ -19,8 +20,6 @@ const ClassList = ({classList}: ClassListProps) => {
   });  
 
   return (
-    <Table tableData={numberedClassList} />
+    <Table tableData={numberedClassList} setSelectedRows={setSelectedStudents} />
   );
-}
-
-export default ClassList;
+};
