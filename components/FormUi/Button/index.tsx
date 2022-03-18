@@ -1,6 +1,5 @@
 import { Button, makeStyles } from "@material-ui/core";
 import { useFormikContext } from "formik";
-
 interface ButtonProps {
     children: React.ReactNode;
     color: string,
@@ -9,13 +8,17 @@ interface ButtonProps {
     closeModal?: () => void
 }
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles(() => {
     return {
-        input: {
-            color: theme.palette.white[100]
+        button: {
+            transition: "transform 200ms ease-in-out",
+
+            '&:hover': {
+                transform: "scale(1.1)"
+            }
         }
-    }
-})
+    };
+});
 
 export const ButtonWrapper = ({children, color, cancel, fullWidth, closeModal}: ButtonProps) => {
 
@@ -24,25 +27,25 @@ export const ButtonWrapper = ({children, color, cancel, fullWidth, closeModal}: 
     const classes = useStyles();
 
     const handleSubmit = () => {        
-        submitForm()
-    }
+        submitForm();
+    };
 
     const handleCancel = () => {
-        resetForm()
-        closeModal && closeModal()
-    }
+        resetForm();
+        closeModal && closeModal();
+    };
 
     const configButton: any = {
         fullWidth,
         onClick: cancel ? handleCancel : handleSubmit,
         variant: 'contained',
         color: color
-    }    
+    };    
 
     return (
         <Button
             {...configButton}
-            
+            className={classes.button}
         >
             {children}
         </Button>

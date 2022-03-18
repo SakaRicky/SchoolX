@@ -1,9 +1,9 @@
 $breakpoints: (
-    xs: '480px', //phone
+    xs: '0px', //phone
     sm: '600px', //tablet
-    md: '960px', //laptop
-    lg: '1280px', //desktop
-    xl: '1920px' //large desktop
+    md: '900px', //laptop
+    lg: '1200px', //desktop
+    xl: '1539px' //large desktop
 );
 
 @each $breakpoint, $value in $breakpoints {

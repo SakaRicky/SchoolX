@@ -27,4 +27,4 @@ export const navCategories = [
             path: '/teachers',
             icon: PersonAddIcon
         }
-]
+];

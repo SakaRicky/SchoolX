@@ -7,7 +7,7 @@ import {
     Grid,
     Typography
 } from "@material-ui/core";
-import { NewStudent, ClassType, Student } from 'types';
+import { ClassType, Student } from 'types';
 import { makeStyles } from '@material-ui/styles';
 import { 
     TextFieldWrapper,
@@ -18,6 +18,7 @@ import {
 } from 'components/FormUi';
 import { getAllClasses } from 'services';
 import styles  from 'styles/editForm.module.scss';
+
 
 interface EditFormProps {
     student: Student
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => {
             marginTop: theme.spacing(5),
             marginBottom: theme.spacing(5)
         }
-    }
+    };
 });
 
 
@@ -60,43 +61,43 @@ export const EditStudentForm = ({student, handleUpdateStudent, handleStudentDisc
             } catch (error: any) {
                 console.log(error);
             }
-        }
+        };
         fetchClasses();
-    }, [])
+    }, []);
 
     type EditStudent = Omit<Student, 'id'>;
 
     const INITIAL_FORM_STATE: EditStudent = {
-        first_name: student.first_name,
-        last_name: student.last_name,
-        date_of_birth: student.date_of_birth,
+        firstName: student.firstName,
+        lastName: student.lastName,
+        dateOfBirth: student.dateOfBirth,
         gender: student.gender,
-        class_name: student.class_name,
-        class_code: student.class_code,
-        fathers_name: student.fathers_name,
-        fathers_phone: student.fathers_phone,
-        fathers_occupation: student.fathers_occupation,
-        mothers_name: student.mothers_name,
-        mothers_phone: student.mothers_phone,
-        mothers_occupation: student.mothers_occupation
-    }
+        className: student.className,
+        classCode: student.classCode,
+        fathersName: student.fathersName,
+        fathersPhone: student.fathersPhone,
+        fathersOccupation: student.fathersOccupation,
+        mothersName: student.mothersName,
+        mothersPhone: student.mothersPhone,
+        mothersOccupation: student.mothersOccupation
+    };
     
     const FORM_VALIDATION = yup.object().shape({
-        first_name: yup.string().required('Required'),
-        last_name: yup.string().required('Required'),
-        date_of_birth: yup.date().required(),
+        firstName: yup.string().required('Required'),
+        lastName: yup.string().required('Required'),
+        dateOfBirth: yup.date().required(),
         gender: yup.string().required("Please enter the gender"),
-        fathers_phone: yup.number().typeError("Please enter a valid phone number"),
-        mothers_phone: yup.number().typeError("Please enter a valid phone number"),
+        fathersPhone: yup.number().typeError("Please enter a valid phone number"),
+        mothersPhone: yup.number().typeError("Please enter a valid phone number"),
     });
 
     const handleSubmit = (values: EditStudent) => {
         const studentToUpdate = {
             ...values,
             id: student.id
-        }        
+        };        
         handleUpdateStudent(studentToUpdate);
-    }
+    };
     
   return (
       <div className={styles.root}>
@@ -223,4 +224,4 @@ export const EditStudentForm = ({student, handleUpdateStudent, handleStudentDisc
         </Grid>
       </div>
   );
-}
+};

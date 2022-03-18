@@ -21,8 +21,8 @@ export const FlashNotification = ({notify, setNotify}: FlashNotificationProps) =
         setNotify(
             {
                 ...notify,
-                isOpen: false})
-    }
+                isOpen: false});
+    };
     
     return (
             <Snackbar
@@ -38,4 +38,4 @@ export const FlashNotification = ({notify, setNotify}: FlashNotificationProps) =
                 </Alert>
             </Snackbar>
     );
-}
+};

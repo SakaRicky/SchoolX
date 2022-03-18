@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import { Typography, Modal } from '@material-ui/core';
 import { Teacher } from 'types';
 import { getUser, updateUser } from 'services';
-import styles from 'styles/teacherPage.module.scss'
-import Image from 'next/image'
+import styles from './teacherPage.module.scss';
+import Image from 'next/image';
 import EditIcon from '@material-ui/icons/Edit';
 import { EditTeacherForm } from 'components';
 
@@ -14,8 +14,8 @@ const TeacherPage = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
     const [editTeacher, setEditTeacher] = useState<Teacher>();
 
-  const router = useRouter()
-  const { teacherID } = router.query
+  const router = useRouter();
+  const { teacherID } = router.query;
   
   useEffect(() => {
     const fetchTeacher = async () => {      
@@ -27,15 +27,15 @@ const TeacherPage = () => {
           console.log(error);
         }
       }
-    }
+    };
     fetchTeacher();
-  }, [])  
+  }, [teacherID]);  
 
   const handleEdit = () => {
       setOpenModal(true);
       setEditTeacher(teacher);
       console.log(teacher);
-  }
+  };
 
   const handleCloseModal = () => {
       setOpenModal(false);
@@ -52,8 +52,8 @@ const TeacherPage = () => {
   };
 
   const handleUserDiscard = () => {
-    setOpenModal(false)
-  }
+    setOpenModal(false);
+  };
 
   return (
     <>
@@ -80,7 +80,7 @@ const TeacherPage = () => {
                         />
                     </div>  
                     <div className={styles.profile__text}>
-                        <strong>{teacher?.first_name + " " + teacher?.last_name}</strong>
+                        <strong>{teacher?.firstName + " " + teacher?.lastName}</strong>
                     </div>
                 </div>
                 <div className={styles.detailWrapper}>
@@ -92,19 +92,19 @@ const TeacherPage = () => {
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>First Name</span>
-                                {teacher?.first_name}
+                                {teacher?.firstName}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Last Name</span>
-                                {teacher?.last_name}
+                                {teacher?.lastName}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Date of Birth</span>
-                                {teacher?.date_of_birth}
+                                {teacher?.dateOfBirth}
                             </Typography>
                         </div>
                         <div>
@@ -117,7 +117,7 @@ const TeacherPage = () => {
                 </div>
             </div>
         </>
-  )
-}
+  );
+};
 
 export default TeacherPage;

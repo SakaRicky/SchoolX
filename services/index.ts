@@ -9,3 +9,5 @@ export {
 export { saveStudent, getStudent, updateStudent } from './student';
 
 export { saveUser, getUser, getUsers, logUser, updateUser } from './user';
+
+export { getAllSubjects } from './subjects';

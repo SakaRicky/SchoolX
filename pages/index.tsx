@@ -15,7 +15,7 @@ const Home: NextPage = () => {
           <Login />
         </main>
       </div>      
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

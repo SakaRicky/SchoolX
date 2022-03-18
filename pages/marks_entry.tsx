@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => {
             backgroundColor: "#fff",
 
         }
-    }
+    };
 });
 
 const SEQUENCES = [
@@ -52,10 +52,11 @@ const SEQUENCES = [
     {code: 'seq4', label: <span>4<sup>th</sup> Sequence</span>},
     {code: 'seq5', label: <span>5<sup>th</sup> Sequence</span>},
     {code: 'seq6', label: <span>6<sup>th</sup> Sequence</span>}
-]
+];
 
 const MarksEntry = () => {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const classes = useStyles();
 
     const [sequence, setSequence] = useState<string>('');
@@ -74,9 +75,9 @@ const MarksEntry = () => {
             } catch (error: any) {
                 console.log(error);
             }
-        }
+        };
         sequence && fetchClasses(); // Only fetch for classes when there is a sequence
-    }, [sequence])
+    }, [sequence]);
 
     useEffect(() => {
         const fetchClassList = async () => {            
@@ -86,17 +87,17 @@ const MarksEntry = () => {
             } catch (error: any) {
                 console.log(error);
             }
-        }
+        };
         sequence && fetchClassList(); // Only fetch for classes when there is a sequence
-    }, [classToFetch])
+    }, [classToFetch, sequence]);
 
     const setChoosedSequence = (event: ChangeEvent<HTMLInputElement>) => {        
         setSequence(event.target.value);
-    }
+    };
 
     const setChoosedClass = (event: ChangeEvent<HTMLInputElement>) => {        
         setClassToFetch(event.target.value);
-    }
+    };
 
     const handleSubmitMarks = async (marks: MarksEntryListType) => {
         try {
@@ -105,15 +106,15 @@ const MarksEntry = () => {
                 isOpen: true,
                 message: "Marks saved successfully",
                 type: "success"
-            })
+            });
         } catch (error) {
             setNotify({
                 isOpen: true,
                 message: "Huston, we got a problem",
                 type: "error"
-            })
+            });
         } 
-    }
+    };
 
     return (
         <div className={styles.root}>
@@ -129,7 +130,7 @@ const MarksEntry = () => {
                                     <MenuItem className={styles.menuItem} key={sequence.code} value={sequence.code}>
                                         {sequence.label}
                                     </MenuItem>
-                                )
+                                );
                             })}
                         </TextField>
                     </Grid>
@@ -143,7 +144,7 @@ const MarksEntry = () => {
                                     <MenuItem className={styles.menuItem} key={currentClass.id} value={currentClass.id}>
                                         {currentClass.name}
                                     </MenuItem>
-                                )
+                                );
                             })}
                         </TextField>
                     </Grid>
@@ -155,6 +156,6 @@ const MarksEntry = () => {
             </div>
         </div>
     );
-}
+};
 
 export default MarksEntry;

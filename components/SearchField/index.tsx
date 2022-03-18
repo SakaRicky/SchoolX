@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'styles/searchField.module.scss';
+import styles from './searchField.module.scss';
 import CloseIcon from '@material-ui/icons/Close';
 
 interface SearchFieldProps {
@@ -23,5 +23,5 @@ export const SearchField = ({handleSearchCancel, setSearchText, searchText}: Sea
                 <span onClick={handleSearchCancel}><CloseIcon /></span>
             </div>
         </div>
-    )
+    );
 };

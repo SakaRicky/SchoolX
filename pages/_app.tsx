@@ -5,13 +5,13 @@ import { ThemeProvider } from '@material-ui/styles';
 import { Layout } from 'components';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 import { StateProvider } from 'state';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   
-  const router = useRouter()  
+  const router = useRouter();  
 
   const getContent = () => {
     if (router.pathname === '/')
@@ -19,7 +19,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
         </ThemeProvider>
-      )
+      );
 
     return (
       <StateProvider>
@@ -33,7 +33,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
       </StateProvider>
     );
   };
-  return getContent() 
-}
+  return getContent(); 
+};
 
-export default MyApp
+export default MyApp;

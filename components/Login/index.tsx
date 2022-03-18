@@ -32,13 +32,13 @@ const useStyles = makeStyles(theme => {
       justifyContent: "center"
     },
     toolbar: theme.mixins.toolbar,
-  }
-})
+  };
+});
 
 // Not fully functional as I need to implement the state using context api
 export const Login = () => {
 
-  const router = useRouter()
+  const router = useRouter();
   const classes = useStyles();
 
   const handleSubmit = async (data: LoggedUser) => {
@@ -55,7 +55,7 @@ export const Login = () => {
     email: "",
     password: "",
     remember: false
-  }
+  };
 
   const FORM_VALIDATION = object().shape({
     email: string().email("Invalid email").required("please enter email"),

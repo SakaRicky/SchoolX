@@ -22,12 +22,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import { useStateValue } from 'state';
 
 import { stringAvatar } from 'utils';
-import styles from 'styles/layout.module.scss';
+import styles from './layout.module.scss';
 import { navCategories } from './navData';
 
-interface LayoutProps {
-    children: React.ReactNode;
-}
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -119,21 +116,26 @@ const useStyles = makeStyles(theme => ({
   
 }), { name: 'MuiLayoutComponent' });
 
+
+interface LayoutProps {
+    children: React.ReactNode;
+}
+
 export const Layout = ({children}: LayoutProps) => {
     const [state] = useStateValue();    
 
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const router = useRouter()
+    const router = useRouter();
 
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen)
-    }
+        setMobileOpen(!mobileOpen);
+    };
 
     const pushAndCloseDrawer = (path: string) => {
         router.push(path);
-        setMobileOpen(false)
-    }
+        setMobileOpen(false);
+    };
     
     const drawer = (
         <div>
@@ -227,5 +229,5 @@ export const Layout = ({children}: LayoutProps) => {
             
       </div>
 
-    )
-}
+    );
+};

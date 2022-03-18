@@ -1,4 +1,4 @@
-import styles from 'styles/button.module.scss';
+import styles from './button.module.scss';
 import React, { ReactNode } from 'react';
 
 interface ButtonProps {
@@ -13,5 +13,5 @@ export const Button = ({label, handleClick, children}: ButtonProps) => {
             {children}
             {label}
         </button>
-    )
-}
+    );
+};

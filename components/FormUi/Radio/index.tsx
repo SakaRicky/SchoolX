@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme => {
         input: {
             backgroundColor: theme.palette.white[100]
         }
-    }
-})
+    };
+});
 
 export const RadioWrapper = ({name}: RadioProps) => {
     
@@ -29,13 +29,13 @@ export const RadioWrapper = ({name}: RadioProps) => {
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setFieldValue(name, value);
-    }
+    };
 
     const configRadioGroup: any = {
         ...field,
         name,
         onChange: handleChange
-    }
+    };
 
     if (meta && meta.touched && meta.error) {
         configRadioGroup.error = true;
@@ -57,5 +57,5 @@ export const RadioWrapper = ({name}: RadioProps) => {
                 <FormControlLabel value="male" control={<Radio color="primary" />} label="Male" />
             </RadioGroup>
         </FormControl>
-    )
+    );
 };

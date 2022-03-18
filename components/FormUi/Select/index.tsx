@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => {
         input: {
             backgroundColor: theme.palette.white[100]
         }
-    }
-})
+    };
+});
 
 
 export const SelectWrapper = ({name, options, label, handleChangeParent}: SelectProps) => {
@@ -29,7 +29,7 @@ export const SelectWrapper = ({name, options, label, handleChangeParent}: Select
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         setFieldValue(name, value);
-    }
+    };
 
     const configSelect: any = {
         ...field,
@@ -38,7 +38,7 @@ export const SelectWrapper = ({name, options, label, handleChangeParent}: Select
         fullWidth: true,
         label,
         onChange: handleChangeParent ? handleChangeParent : handleChange
-    }
+    };
 
     if (meta && meta.touched && meta.error) {
         configSelect.error = true;
@@ -52,12 +52,12 @@ export const SelectWrapper = ({name, options, label, handleChangeParent}: Select
             }}
             {...configSelect}
         >
-            {options.map((singleClass, idx) => {                
+            {options.map(option => {                
                 return (
-                    <MenuItem key={idx} value={singleClass.code}>
-                        {singleClass.name}
+                    <MenuItem key={option.code} value={option.name}>
+                        {option.name}
                     </MenuItem>
-                )
+                );
             })}
         </TextField>
     );

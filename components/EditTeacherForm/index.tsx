@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => {
             marginTop: theme.spacing(5),
             marginBottom: theme.spacing(5)
         }
-    }
+    };
 });
 
 
@@ -61,22 +61,23 @@ export const EditTeacherForm = ({teacher, handleUpdateUser, handleUserDiscard}: 
             } catch (error: any) {
                 console.log(error);
             }
-        }
+        };
         fetchClasses();
-    }, [])
+    }, []);
 
     const INITIAL_FORM_STATE: NewTeacher = {
-        first_name: teacher.first_name,
-        last_name: teacher.last_name,
-        date_of_birth: teacher.date_of_birth,
+        firstName: teacher.firstName,
+        lastName: teacher.lastName,
+        dateOfBirth: teacher.dateOfBirth,
         gender: teacher.gender,
-        phone: teacher.phone
-    }
+        phone: teacher.phone,
+        subject: ''
+    };
     
     const FORM_VALIDATION = yup.object().shape({
-        first_name: yup.string().required('Required'),
-        last_name: yup.string().required('Required'),
-        date_of_birth: yup.date().required(),
+        firstName: yup.string().required('Required'),
+        lastName: yup.string().required('Required'),
+        dateOfBirth: yup.date().required(),
         gender: yup.string().required("Please enter the gender"),
 
     });
@@ -85,13 +86,13 @@ export const EditTeacherForm = ({teacher, handleUpdateUser, handleUserDiscard}: 
         const teacherToUpdate = {
             ...values,
             id: teacher.id
-        }
+        };
         handleUpdateUser(teacherToUpdate);
-    }
+    };
 
     const handleDiscard = () => {
         handleUserDiscard();
-    }
+    };
     
   return (
       <div className={styles.root}>
@@ -176,4 +177,4 @@ export const EditTeacherForm = ({teacher, handleUpdateUser, handleUserDiscard}: 
         </Grid>
       </div>
   );
-}
+};

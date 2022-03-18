@@ -11,8 +11,8 @@ const useStyles = makeStyles(theme => {
         input: {
             backgroundColor: theme.palette.white[100]
         }
-    }
-})
+    };
+});
 
 export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     
@@ -29,7 +29,7 @@ export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
         InputLabelProps: {
             shrink: true
         },
-    }
+    };
 
     if (meta && meta.touched && meta.error) {
         configDatePicker.error = true;
@@ -43,5 +43,5 @@ export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
                 className: classes.input
             }}
         />
-    )
+    );
 };

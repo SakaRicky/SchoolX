@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import { NewTeacher, Notify, Teacher } from 'types';
 import { getUsers, saveUser } from 'services';
 import { Grid, makeStyles, Modal } from '@material-ui/core';
@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => {
         table: {
           margin: theme.spacing(5)
         }
-    }
-})
+    };
+});
 
 
 const Teachers = () => {
@@ -49,21 +49,21 @@ const Teachers = () => {
     } catch (error: any) {
       console.log(error);
     }
-  }
+  };
   
   useEffect(() => {
     fetchTeachers();
-  }, []) 
+  }, []); 
 
   // filter according to search state or return the whole data
   const filteredTeachers = searchText ? teachers?.filter(data => {
-      return data.first_name.toLowerCase().includes(searchText)
+      return data.firstName.toLowerCase().includes(searchText);
   }) : teachers;
 
 
   const handleSearchCancel = () => {
       setSearchText("");
-  }
+  };
 
   const handleCloseModal = () => {
     setOpenAddTeacherModal(false);
@@ -82,21 +82,23 @@ const Teachers = () => {
             isOpen: true,
             message: "Teacher saved successfully",
             type: "success"
-        })
-        handleCloseModal()
+        });
+        handleCloseModal();
         fetchTeachers();
-    } catch (error: any) {
-        setNotify({
-            isOpen: true,
-            message: error,
-            type: "error"
-        })
-    }               
-}
+      } catch (error: any) {
+          setNotify({
+              isOpen: true,
+              message: error,
+              type: "error"
+          });
+      }               
+  };
 
   const handleAddTeacher = () => {
-    setOpenAddTeacherModal(true)
-  }
+    setOpenAddTeacherModal(true);
+  };
+
+  const formRef = createRef<HTMLDivElement>();
   
 
 return (
@@ -109,7 +111,7 @@ return (
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
     >
-        <AddTeacherForm handleSubmit={handleSubmit} />
+      <AddTeacherForm handleSubmit={handleSubmit} ref={formRef} />
     </Modal>
     <div className={styles.head}>
       <h2>List of Teacher</h2>
@@ -125,13 +127,13 @@ return (
     </div>
     <Grid container spacing={2}>
       {filteredTeachers?.map((teacher, index) => {
-        return <Grid xs={12} sm={6} md={4} key={index} item><TeacherCard teacher={teacher}/></Grid>
+        return <Grid xs={12} sm={6} md={4} key={index} item><TeacherCard teacher={teacher}/></Grid>;
       })}
     </Grid>
     {/* {teachers && <Table tableData={teachers}/>} */}
   </div>
-)
+);
 
-}
+};
 
-export default Teachers
+export default Teachers;

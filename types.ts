@@ -1,17 +1,18 @@
+/* eslint-disable no-unused-vars */ //on Gender
 export interface Student {
     id: string,
-    first_name: string,
-    last_name: string,
-    date_of_birth: string,
+    firstName: string,
+    lastName: string,
+    dateOfBirth: string,
     gender: string,
-    class_name: string,
-    class_code: string,
-    fathers_name: string,
-    fathers_phone: string,
-    fathers_occupation: string,
-    mothers_name: string,
-    mothers_phone: string,
-    mothers_occupation: string
+    className: string,
+    classCode: string,
+    fathersName: string,
+    fathersPhone: string,
+    fathersOccupation: string,
+    mothersName: string,
+    mothersPhone: string,
+    mothersOccupation: string
 }
 
 export interface StudentOnClassList extends Student {
@@ -28,9 +29,9 @@ export interface StudentOnMarksEntry {
 export interface Teacher {
     id: string,
     subject: string,
-    first_name: string,
-    last_name: string,
-    date_of_birth: string,
+    firstName: string,
+    lastName: string,
+    dateOfBirth: string,
     gender: string,
     email?: string,
     phone: number | string
@@ -77,4 +78,10 @@ export interface MarksEntryListType {
     id: string,
     nameOfClass: string,
     students: StudentOnMarksEntry[]
+}
+
+export interface Subject {
+    id: string,
+    code: string,
+    name: string
 }

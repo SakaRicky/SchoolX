@@ -1,5 +1,5 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import { Typography, makeStyles, Modal } from "@material-ui/core";
+import React, { useState, useEffect, ChangeEvent, useCallback, createRef } from 'react';
+import { Typography, makeStyles, Modal, DialogContent } from "@material-ui/core";
 import { ClassListTable } from "components";
 import { getClassList, getAllClasses, updateStudent, saveStudent } from 'services';
 import { TextField, MenuItem, Grid } from '@material-ui/core';
@@ -8,7 +8,7 @@ import styles from 'styles/students.module.scss';
 import { Button, SearchField, EditStudentForm, FlashNotification, AddStudentForm } from 'components';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import EditIcon from '@material-ui/icons/Edit';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 
 const useStyles = makeStyles(theme => {
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => {
             display: "flex",
             justifyContent: "center",
         }
-    }
+    };
 });
 
 const ClassListPage = () => {
@@ -42,7 +42,7 @@ const ClassListPage = () => {
     const [openEditStudentModal, setOpenEditStudentModal] = useState<boolean>(false);
     // modal to add new student
     const [openAddStudentModal, setOpenAddStudentModal] = useState<boolean>(false);
-    // students selected from the table, used on line 114
+    // students selected from the table, used in handleSelected method
     const [selectedStudents, setSelectedStudents] = useState<Student[]>();
     // used to edit student's personal info
     const [editStudent, setEditStudent] = useState<Student | undefined>();
@@ -54,23 +54,27 @@ const ClassListPage = () => {
     const classes = useStyles();
 
     // used to redirect and other router stuffs
-    const router = useRouter()
+    const router = useRouter();
 
-    const getCurrentClassList = async() => {
+    // used for modal child so it can keep track of. Don't know why but AddStudentForm is considered a
+    // component that needs a ref and not EditStudentForm
+    const ref = createRef<HTMLDivElement>();
+
+    const getCurrentClassList = useCallback(async() => {
         try {
-            const list = await getClassList(classToFetch);                
+            const list = await getClassList(classToFetch);
             setCurrentClassList(list);
         } catch (error: any) {
             console.log(error);
         }
-    }
+    }, [classToFetch]);
 
     // This one is to fetch for classes
     useEffect(() => {
         if (classToFetch !== '') {
-            getCurrentClassList()
+            getCurrentClassList();
         }
-    }, [classToFetch])
+    }, [classToFetch, getCurrentClassList]);
 
     const fetchAllClasses = async() => {
         try {
@@ -80,41 +84,40 @@ const ClassListPage = () => {
             console.log(error);
         }
         
-    }
+    };
 
     // This one is to search for the list od students
     useEffect(() => {
         fetchAllClasses();
-    }, [])
+    }, []);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setClassToFetch(event.target.value);
-    }
+    };
     
      // filter according to search state or return the whole data
     const filteredStudents = searchText ? currentClassList?.students.filter(data => {
-        return data.first_name.toLowerCase().includes(searchText)
+        return data.firstName.toLowerCase().includes(searchText);
     }) : currentClassList?.students;
 
 
     const handleSearchCancel = () => {
         setSearchText("");
-    }
+    };
 
     // set the student to edit and open modal
     const handleEdit = () => {
         setOpenEditStudentModal(true);
         // setEditStudent(student);
         // console.log(student);
-    }
+    };
 
     // set the student to edit and open modal
     const handleSelected = (selectedStudents: StudentOnClassList[]) => {
         setSelectedStudents(selectedStudents);
         // if 1 student is selected, we can edit his personal infos
         selectedStudents?.length === 1 ? setEditStudent(selectedStudents[0]) : setEditStudent(undefined);
-
-    }
+    };
 
     const handleUpdateStudent = async (student: Student) => {
         try {
@@ -127,9 +130,9 @@ const ClassListPage = () => {
     };
     
       const handleStudentDiscard = () => {
-        setOpenEditStudentModal(false)
-      }
-
+        setOpenEditStudentModal(false);
+      };
+    
     const handleCloseModal = () => {
         setOpenEditStudentModal(false);
         setOpenAddStudentModal(false);
@@ -143,21 +146,21 @@ const ClassListPage = () => {
                 isOpen: true,
                 message: "Student saved successfully",
                 type: "success"
-            })
-            handleCloseModal()
+            });
+            handleCloseModal();
         } catch (error: any) {
             setNotify({
                 isOpen: true,
                 message: error,
                 type: "error"
-            })
+            });
         }        
-    }
+    };
 
     // fxn used to open the modal and add the form to add register student in it
     const handleAddStudent = () => {
         setOpenAddStudentModal(true);
-    }
+    };
 
 
     return (
@@ -168,20 +171,20 @@ const ClassListPage = () => {
             <Modal
                 open={openEditStudentModal}
                 onClose={handleCloseModal}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
             >
 
                 {/** I use a paragraph here because of error indicating modal can only take ReactNode or JSX */}
-                {editStudent ? <EditStudentForm handleUpdateStudent={handleUpdateStudent} handleStudentDiscard={handleStudentDiscard} student={editStudent} /> : <p>No student selected</p>}
+                <DialogContent>
+                    {editStudent ? <EditStudentForm handleUpdateStudent={handleUpdateStudent} handleStudentDiscard={handleStudentDiscard} student={editStudent} /> : <div>No student selected</div>}
+                </DialogContent>
             </Modal>
             <Modal
                 open={openAddStudentModal}
                 onClose={handleCloseModal}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
             >
-                <AddStudentForm handleCancel={handleCloseModal} handleSubmit={handleSaveNewStudent} />
+                <DialogContent>
+                    <AddStudentForm handleCancel={handleCloseModal} handleSubmit={handleSaveNewStudent} ref={ref} />
+                </DialogContent>
             </Modal>
 
             <Typography className={styles.heading} variant="h4">
@@ -197,7 +200,7 @@ const ClassListPage = () => {
                                     <MenuItem key={classList.id} value={classList.id}>
                                         {classList.name}
                                     </MenuItem>
-                                )
+                                );
                             })}
                         </TextField>
                         <p><small>* Select a class to view students</small></p>
@@ -223,6 +226,6 @@ const ClassListPage = () => {
 
         </div>
     );
-}
+};
 
 export default ClassListPage;

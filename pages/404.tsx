@@ -8,6 +8,6 @@ const NotFound = () => {
             </Typography>
         </div>
     );
-}
+};
 
 export default NotFound;

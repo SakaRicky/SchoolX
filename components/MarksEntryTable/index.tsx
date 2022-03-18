@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-    Paper,
     Table,
     TableBody,
     TableCell,
@@ -10,10 +9,8 @@ import {
     TableRow,
     TextField,
     Button,
-    Grid
 } from '@material-ui/core';
 import { MarksEntryListType, StudentOnMarksEntry } from 'types';
-import { saveMarks } from 'services';
 
 
 // For now we use the id as matriculestudents
@@ -91,7 +88,7 @@ const useStyles = makeStyles(theme => {
       space: {
           height: theme.spacing(2)
       }
-  }
+  };
 });
 
 interface MarksEntryListProps {
@@ -109,7 +106,7 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
   
   useEffect(() => {
     setSavedStudents(seqClass.students);
-  }, [seqClass])
+  }, [seqClass]);
 
   savedStudents.sort((student1, student2) => {
       const name1 = student1.names.toUpperCase();
@@ -118,7 +115,7 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
   });
 
   const numberedStudents: NumberedStudentOnMarksEntry[] = savedStudents.map((student, idx) => {
-      return {number: idx+1, ...student}
+      return {number: idx+1, ...student};
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>, student: StudentOnMarksEntry) => {
@@ -127,21 +124,21 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
             return {
                 ...savedStudent,
                 marks: Number(event.target.value)
-            }
+            };
         }
-        return savedStudent
-    })
+        return savedStudent;
+    });
     setSavedStudents(updatedSavedStudent);
     
-  }
+  };
 
   const handleSubmit = () => {
     const seqClassToSave = {
         ...seqClass,
         students: savedStudents
-    }
+    };
     submitMarks(seqClassToSave);   
-  }
+  };
 
   return (
     <div className={classes.root}>
@@ -172,7 +169,7 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
                             <TableCell key={column.detail} className={classes.tableCell}>
                                 <TextField variant="outlined" value={value} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, student)} />
                             </TableCell>
-                        )
+                        );
                     }
                     return (
                       <TableCell key={column.detail} className={classes.tableCell}>
@@ -192,4 +189,4 @@ export const MarksEntryTable = ({seqClass, submitMarks}: MarksEntryListProps) =>
       <div className={classes.space} />
     </div>
   );
-}
+};

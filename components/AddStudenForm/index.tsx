@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { Theme } from '@material-ui/core';
 import { Form, Formik } from 'formik';
 import * as yup from 'yup';
@@ -17,7 +17,6 @@ import {
     ButtonWrapper,
 } from 'components/FormUi';
 import { getAllClasses } from 'services';
-import { CgDisplayFlex } from 'react-icons/cg';
 
 
 interface AddStudentProps {
@@ -48,33 +47,35 @@ const useStyles = makeStyles((theme: Theme) => {
             marginTop: theme.spacing(5),
             marginBottom: theme.spacing(5)
         }
-    }
+    };
 });
 
 const INITIAL_FORM_STATE: NewStudent = {
-    first_name: "",
-    last_name: "",
-    date_of_birth: "",
+    firstName: "",
+    lastName: "",
+    dateOfBirth: "",
     gender: "",
-    class_name: "",
-    fathers_name: "",
-    fathers_phone: "",
-    fathers_occupation: "",
-    mothers_name: "",
-    mothers_phone: "",
-    mothers_occupation: ""
-}
+    className: "",
+    fathersName: "",
+    fathersPhone: "",
+    fathersOccupation: "",
+    mothersName: "",
+    mothersPhone: "",
+    mothersOccupation: "",
+    classCode: ''
+};
 
 const FORM_VALIDATION = yup.object().shape({
-    first_name: yup.string().required('Required'),
-    last_name: yup.string().required('Required'),
-    date_of_birth: yup.date().required(),
+    firstName: yup.string().required('Required'),
+    lastName: yup.string().required('Required'),
+    dateOfBirth: yup.date().required(),
     gender: yup.string().required("Please enter the gender"),
-    fathers_phone: yup.number().typeError("Please enter a valid phone number"),
-    mothers_phone: yup.number().typeError("Please enter a valid phone number"),
+    fathersPhone: yup.number().typeError("Please enter a valid phone number"),
+    mothersPhone: yup.number().typeError("Please enter a valid phone number"),
 });
 
-export const AddStudentForm = ({handleSubmit, handleCancel}: AddStudentProps) => {
+// eslint-disable-next-line react/display-name
+export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({handleSubmit, handleCancel}, ref) => {
     const [allClasses, setAllClasses] = useState<ClassType[]>([]);
     const classes = useStyles();
 
@@ -86,12 +87,12 @@ export const AddStudentForm = ({handleSubmit, handleCancel}: AddStudentProps) =>
             } catch (error: any) {
                 console.log(error);
             }
-        }
+        };
         fetchClasses();
-    }, [])
+    }, []);
     
   return (
-      <div className={classes.root}>
+      <div className={classes.root} ref={ref}>
           <Grid container>
             <Container className={classes.title} maxWidth="md">
                 <Typography variant="h5">
@@ -215,4 +216,4 @@ export const AddStudentForm = ({handleSubmit, handleCancel}: AddStudentProps) =>
         </Grid>
       </div>
   );
-}
+});

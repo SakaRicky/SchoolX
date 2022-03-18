@@ -42,5 +42,5 @@ export const useStyles = makeStyles(theme => {
         textField: {
             border: '2px solid theme.palette.secondary[300]'
         },
-    }
-})
+    };
+});

@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { Typography, Modal } from '@material-ui/core';
-import Image from 'next/image'
-import styles from 'styles/studentPage.module.scss';
+import Image from 'next/image';
+import styles from './studentPage.module.scss';
 import { Student } from 'types';
 import { getStudent, updateStudent } from 'services';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import EditIcon from '@material-ui/icons/Edit';
 import { EditStudentForm } from 'components';
 
@@ -15,7 +15,7 @@ const StudentPage = () => {
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [editStudent, setEditStudent] = useState<Student>();
 
-    const router = useRouter()
+    const router = useRouter();
 
     const { studentID } = router.query;    
     
@@ -27,21 +27,21 @@ const StudentPage = () => {
             if (typeof studentID === 'string') {
                 try {
                     const receivedStudent: Student = await getStudent(studentID);
-                    setStudent(receivedStudent)
+                    setStudent(receivedStudent);
                     
                 } catch (error: any) {
                     console.log(error);
                 }
             }  
-        }
-        fetchStudent()
-    }, [])
+        };
+        fetchStudent();
+    }, [studentID]);
 
     const handleEdit = () => {
         setOpenModal(true);
         setEditStudent(student);
         console.log(student);
-    }
+    };
 
     const handleCloseModal = () => {
         setOpenModal(false);
@@ -58,8 +58,8 @@ const StudentPage = () => {
       };
     
       const handleStudentDiscard = () => {
-        setOpenModal(false)
-      }
+        setOpenModal(false);
+      };
 
     return (
         <>
@@ -86,7 +86,7 @@ const StudentPage = () => {
                         />
                     </div>
                     <div className={styles.profile__text}>
-                        <strong>{student?.first_name + " " + student?.last_name}</strong>
+                        <strong>{student?.firstName + " " + student?.lastName}</strong>
                     </div>
                 </div>
                 <div className={styles.detailWrapper}>
@@ -98,68 +98,68 @@ const StudentPage = () => {
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>First Name</span>
-                                {student?.first_name}
+                                {student?.firstName}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Last Name</span>
-                                {student?.last_name}
+                                {student?.lastName}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Date of Birth</span>
-                                {student?.date_of_birth}
+                                {student?.dateOfBirth}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Class</span>
-                                {student?.class_name}
+                                {student?.className}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Father Name</span>
-                                {student?.fathers_name}
+                                {student?.fathersName}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Father Occupation</span>
-                                {student?.fathers_occupation}
+                                {student?.fathersOccupation}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                             <span className={styles.label}>Father Phone Number</span>
-                            {student?.fathers_phone}
+                            {student?.fathersPhone}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Mother Name</span>
-                                {student?.mothers_name}
+                                {student?.mothersName}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Mother Occupation</span>
-                                {student?.mothers_occupation}
+                                {student?.mothersOccupation}
                             </Typography>
                         </div>
                         <div>
                             <Typography className={styles.detail} variant="h6">
                                 <span className={styles.label}>Mother Phone Number</span>
-                                {student?.mothers_phone}
+                                {student?.mothersPhone}
                             </Typography>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default StudentPage
+export default StudentPage;

@@ -1,6 +1,6 @@
 import { TextField, makeStyles } from '@material-ui/core';
 import { useField } from "formik";
-import { theme } from 'theme';
+// import { theme } from 'theme';
 
 interface TextFieldProps {
     name: string,
@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => {
         input: {
             backgroundColor: theme.palette.white[100]
         }
-    }
-})
+    };
+});
 
 export const TextFieldWrapper = ({name, label, fullWidth, variant}: TextFieldProps) => {
     
@@ -36,7 +36,7 @@ export const TextFieldWrapper = ({name, label, fullWidth, variant}: TextFieldPro
         fullWidth: !!fullWidth ? fullWidth : true,
         label,
         variant: !!variant ? variant : 'standard'
-    }    
+    };    
 
     if (meta && meta.touched && meta.error) {
         configTextField.error = true;
@@ -50,5 +50,5 @@ export const TextFieldWrapper = ({name, label, fullWidth, variant}: TextFieldPro
             }}
             {...configTextField}
         />
-    )
+    );
 };

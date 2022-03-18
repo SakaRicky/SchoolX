@@ -1,8 +1,8 @@
 import { createTheme } from "@material-ui/core";
 import { ThemeOptions } from "@material-ui/core";
 import { ColorPartial } from "@material-ui/core/styles/createPalette";
-import font from 'styles/abstracts/_font.module.scss'
-import breakpoints from 'styles/abstracts/_breakpoints.module.scss'
+import font from 'styles/abstracts/_font.module.scss';
+import breakpoints from 'styles/abstracts/_breakpoints.module.scss';
 // import colors from 'styles/abstracts/_colors.module.scss'
 
 declare module '@material-ui/core/styles/createPalette' {
@@ -40,15 +40,15 @@ const themeOptions: ThemeOptions = {
 
       },
       secondary: {
-        100: '#d5d1cf',
-        200: '#bbb2ac',
-        300: '#a19387',
-        400: '#8e7a6b',
-        main: '#7a634f',
-        600: '#6e5948',
-        700: '#5f4c3e',
-        800: '#514035',
-        900: '#413229'
+        100: '#f6eddf',
+        200: '#f2e4cf',
+        300: '#eddcbf',
+        400: '#e9d3af',
+        main: '#e4c4a0',
+        600: '#e0c190',
+        700: '#dbb880',
+        800: '#d7af70',
+        900: '#d2a660'
       },
       danger: {
         100: '#f6c1b9',
@@ -102,6 +102,15 @@ const themeOptions: ThemeOptions = {
     spacing: 8,
     typography: {
       fontFamily: `'Poppins'`
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
     },
     props: {
       MuiButtonBase: {
