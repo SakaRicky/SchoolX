@@ -54,7 +54,7 @@ const INITIAL_FORM_STATE: NewTeacher = {
     firstName: "",
     lastName: "",
     subject: "",
-    dateOfBirth: "",
+    dateOfBirth: new Date(),
     gender: "",
     email: "",
     phone: ""

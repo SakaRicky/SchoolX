@@ -31,12 +31,14 @@ export const SelectWrapper = ({name, options, label, handleChangeParent}: Select
         setFieldValue(name, value);
     };
 
+
     const configSelect: any = {
         ...field,
         select: true,
         variant: 'outlined',
         fullWidth: true,
         label,
+        value: field.value,
         onChange: handleChangeParent ? handleChangeParent : handleChange
     };
 
@@ -51,10 +53,12 @@ export const SelectWrapper = ({name, options, label, handleChangeParent}: Select
                 className: classes.input
             }}
             {...configSelect}
+            inputProps={{ "data-testid": "select" }}
+            defaultValue="" // used this so that MUI should not warn during test. Can be good for other reasons though
         >
-            {options.map(option => {                
+            {options.map(option => {   
                 return (
-                    <MenuItem key={option.code} value={option.name}>
+                    <MenuItem key={option.code} value={option.code} data-testid="select-option">
                         {option.name}
                     </MenuItem>
                 );

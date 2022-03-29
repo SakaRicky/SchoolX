@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => {
 
 export const TextFieldWrapper = ({name, label, fullWidth, variant}: TextFieldProps) => {
     
-    const [field, meta] = useField(name);
+    const [field, meta] = useField(name);    
 
     const classes = useStyles();
 
@@ -48,6 +48,9 @@ export const TextFieldWrapper = ({name, label, fullWidth, variant}: TextFieldPro
             InputProps={{
                 className: classes.input
             }}
+            //added this to be used when testing. It'e used to identify by name
+            // screen.getByRole("textbox", { name: "firstName"});
+            inputProps={{'aria-label': name}}
             {...configTextField}
         />
     );

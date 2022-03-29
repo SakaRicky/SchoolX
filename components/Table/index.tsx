@@ -11,7 +11,7 @@ interface TableProps {
 }
 
 export const Table = ({tableData, setSelectedRows}: TableProps) => {
-    
+        
     const router = useRouter();
 
     const classes = useStyles();

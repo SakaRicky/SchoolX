@@ -1,5 +1,6 @@
-import { makeStyles, TextField } from '@material-ui/core';
-import { useField } from "formik";
+import { makeStyles } from '@material-ui/core';
+import { KeyboardDatePicker } from '@material-ui/pickers';
+import { useField, useFormikContext } from "formik";
 
 interface DatePickerProps {
     name: string,
@@ -17,13 +18,12 @@ const useStyles = makeStyles(theme => {
 export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     
     const [field, meta] = useField(name);
+    const { setFieldValue } = useFormikContext();
 
-    const classes = useStyles();
+    const classes = useStyles();    
 
     const configDatePicker: any = {
         ...field,
-        type: 'date',
-        variant: 'outlined',
         fullWidth: true,
         label,
         InputLabelProps: {
@@ -37,10 +37,20 @@ export const DatePickerWrapper = ({name, label}: DatePickerProps) => {
     }
 
     return (
-        <TextField
+
+        <KeyboardDatePicker
             {...configDatePicker}
+            format= "dd/MM/yyyy"
+            value={field.value}
+            variant= 'inline'
+            inputVariant="outlined"
+            data-testid={name}
             InputProps={{
                 className: classes.input
+            }}
+            onChange = {(date: Date) => setFieldValue(name, date)}
+            KeyboardButtonProps={{
+                'aria-label': 'change date',
             }}
         />
     );

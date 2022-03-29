@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Typography, Modal } from '@material-ui/core';
+import { Typography, Modal, DialogContent } from '@material-ui/core';
 import Image from 'next/image';
 import styles from './studentPage.module.scss';
 import { Student } from 'types';
@@ -40,7 +40,6 @@ const StudentPage = () => {
     const handleEdit = () => {
         setOpenModal(true);
         setEditStudent(student);
-        console.log(student);
     };
 
     const handleCloseModal = () => {
@@ -70,9 +69,11 @@ const StudentPage = () => {
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
             >
-
-                {/** I use a paragraph here because of error indicating modal can only take ReactNode or JSX */}
-                {editStudent ? <EditStudentForm handleUpdateStudent={handleUpdateStudent} handleStudentDiscard={handleStudentDiscard} student={editStudent} /> : <p>No one selected to edit</p>}
+                {/* This fragment is to prevent react error on forwardRef(Modal) */}
+               <>
+                    {/** I use a paragraph here because of error indicating modal can only take ReactNode or JSX */}
+                    {editStudent ? <EditStudentForm handleUpdateStudent={handleUpdateStudent} handleStudentDiscard={handleStudentDiscard} student={editStudent} /> : <p>No one selected to edit</p>}
+               </>
                 
             </Modal>
             <div className={styles.root}>

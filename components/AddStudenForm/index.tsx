@@ -53,9 +53,8 @@ const useStyles = makeStyles((theme: Theme) => {
 const INITIAL_FORM_STATE: NewStudent = {
     firstName: "",
     lastName: "",
-    dateOfBirth: "",
+    dateOfBirth: new Date(),
     gender: "",
-    className: "",
     fathersName: "",
     fathersPhone: "",
     fathersOccupation: "",
@@ -106,7 +105,8 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
                                 ...INITIAL_FORM_STATE
                             }}
                             validationSchema={FORM_VALIDATION}
-                            onSubmit= {values => {
+                            onSubmit= {values => {  
+                                console.log(values);                        
                                 handleSubmit(values);
                             }}
                         >
@@ -116,7 +116,7 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
 
                                     <Grid item xs={6}>
                                         <TextFieldWrapper
-                                            name="first_name"
+                                            name="firstName"
                                             label="First Name"
                                             variant="outlined"
                                         />
@@ -124,7 +124,7 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
 
                                     <Grid item xs={6}>
                                         <TextFieldWrapper 
-                                            name="last_name"
+                                            name="lastName"
                                             label="Last Name"
                                             variant="outlined"
                                         />
@@ -132,7 +132,7 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
 
                                     <Grid item xs={12} md={6}>
                                         <DatePickerWrapper 
-                                            name="date_of_birth"
+                                            name="dateOfBirth"
                                             label="Date of Birth"
                                         />
                                     </Grid>
@@ -145,7 +145,7 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
 
                                     <Grid item xs={12}>
                                         <SelectWrapper
-                                            name="class"
+                                            name="classCode"
                                             label="Class"
                                             options={allClasses}
                                         />
@@ -153,21 +153,21 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
 
                                     <Grid item xs={12} md={6}>
                                         <TextFieldWrapper 
-                                            name="fathers_name"
+                                            name="fathersName"
                                             label="Fathers Name"
                                             variant="outlined"
                                         />
                                     </Grid>
                                     <Grid item xs={12} md={6}>
                                         <TextFieldWrapper 
-                                            name="fathers_phone"
+                                            name="fathersPhone"
                                             label="Fathers Pnone Number"
                                             variant="outlined"
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextFieldWrapper 
-                                            name="fathers_occupation"
+                                            name="fathersOccupation"
                                             label="Fathers Occupation"
                                             variant="outlined"
                                         />
@@ -175,21 +175,21 @@ export const AddStudentForm = forwardRef<HTMLDivElement, AddStudentProps>(({hand
 
                                     <Grid item xs={12} md={6}>
                                         <TextFieldWrapper 
-                                            name="mothers_name"
+                                            name="mothersName"
                                             label="Mothers Name"
                                             variant="outlined"
                                         />
                                     </Grid>
                                     <Grid item xs={12} md={6}>
                                         <TextFieldWrapper 
-                                            name="mothers_occupation"
+                                            name="mothersOccupation"
                                             label="Mothers Occupation"
                                             variant="outlined"
                                         />
                                     </Grid>
                                     <Grid item xs={12} md={6}>
                                         <TextFieldWrapper 
-                                            name="mothers_phone"
+                                            name="mothersPhone"
                                             label="Mothers Phone Number"
                                             variant="outlined"
                                         />

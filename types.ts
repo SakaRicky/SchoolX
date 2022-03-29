@@ -3,7 +3,7 @@ export interface Student {
     id: string,
     firstName: string,
     lastName: string,
-    dateOfBirth: string,
+    dateOfBirth: Date,
     gender: string,
     className: string,
     classCode: string,
@@ -31,7 +31,7 @@ export interface Teacher {
     subject: string,
     firstName: string,
     lastName: string,
-    dateOfBirth: string,
+    dateOfBirth: Date,
     gender: string,
     email?: string,
     phone: number | string
@@ -45,7 +45,7 @@ export interface LoggedUser {
     token?: string
 }
 
-export type NewStudent = Omit<Student, 'id' | 'class_code'>;
+export type NewStudent = Omit<Student, 'id' | 'className'>;
 
 export type NewTeacher = Omit<Teacher, 'id'>;
 

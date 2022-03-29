@@ -182,9 +182,13 @@ const ClassListPage = () => {
                 open={openAddStudentModal}
                 onClose={handleCloseModal}
             >
-                <DialogContent>
+                {/* 
+                    I used these fragments so MUI don't complain of tabIndex
+                    Also could use ModalContent, but modal won't disappear when clicked
+                */}
+                <>
                     <AddStudentForm handleCancel={handleCloseModal} handleSubmit={handleSaveNewStudent} ref={ref} />
-                </DialogContent>
+                </>
             </Modal>
 
             <Typography className={styles.heading} variant="h4">
