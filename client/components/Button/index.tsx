@@ -1,17 +1,16 @@
-import styles from './button.module.scss';
-import React, { ReactNode } from 'react';
-
+import styles from "./button.module.scss";
+import React, { ReactNode } from "react";
 interface ButtonProps {
-    label: string
-    children: ReactNode
-    handleClick?: () => void
+	label: string;
+	children: ReactNode;
+	handleClick?: () => void;
 }
 
-export const Button = ({label, handleClick, children}: ButtonProps) => {
-    return (
-        <button onClick={handleClick} className={styles.button}>
-            {children}
-            {label}
-        </button>
-    );
+export const Button = ({ label, handleClick, children }: ButtonProps) => {
+	return (
+		<button onClick={handleClick} className={styles.button}>
+			{children}
+			{label}
+		</button>
+	);
 };

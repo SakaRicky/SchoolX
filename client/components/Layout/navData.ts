@@ -23,8 +23,8 @@ export const navCategories = [
             icon: GroupAddIcon
         },
         {
-            label: "Teacher",
-            path: '/teachers',
+            label: "Users",
+            path: '/users',
             icon: PersonAddIcon
         }
 ];

@@ -1,0 +1,49 @@
+GET http://localhost:5000/api/classes HTTP/1.1
+
+###
+POST http://localhost:5000/api/classes HTTP/1.1
+Content-Type: application/json
+
+{
+    "className": "Form 1",
+    "classCode": "f1"
+}
+
+###
+POST http://localhost:5000/api/classes HTTP/1.1
+Content-Type: application/json
+
+{
+    "className": "Form 2",
+    "classCode": "f2"
+}
+
+###
+POST http://localhost:5000/api/classes HTTP/1.1
+Content-Type: application/json
+
+{
+    "className": "Form 3",
+    "classCode": "f3"
+}
+
+###
+POST http://localhost:5000/api/classes HTTP/1.1
+Content-Type: application/json
+
+{
+    "className": "Form 4",
+    "classCode": "f4"
+}
+
+###
+POST http://localhost:5000/api/classes HTTP/1.1
+Content-Type: application/json
+
+{
+    "className": "Form 5",
+    "classCode": "f5"
+}
+
+###
+GET http://localhost:5000/api/classes/2 HTTP/1.1

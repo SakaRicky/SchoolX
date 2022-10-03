@@ -1,0 +1,103 @@
+GET http://localhost:5000/api/users HTTP/1.1
+
+###
+
+GET http://localhost:5000/api/users/f603083f-fe62-44ef-b0f0-6cc51419b501 HTTP/1.1
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Teacher",
+    "lastName": "A",
+    "dateOfBirth": "Fri Apr 01 2022",
+    "gender": "Male",
+    "phone": "123-456-789",
+    "email": "",
+    "subjectIds": ["1"],
+    "password": "teachera",
+    "roles": ["1", "2"]
+}
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Teacher",
+    "lastName": "B",
+    "dateOfBirth": "Fri Apr 01 2022",
+    "gender": "Female",
+    "phone": "123-456-789",
+    "email": "teacherb@school.com",
+    "subjectIds": ["2"],
+    "password": "teacherb",
+    "roles": ["3"]
+
+}
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Teacher",
+    "lastName": "C",
+    "dateOfBirth": "Fri Apr 01 2022",
+    "gender": "Female",
+    "phone": "123-456-789",
+    "email": "teacherC@school.com",
+    "subjectIds": ["3"],
+    "password": "teachera",
+    "roles": ["3"]
+}
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Teacher",
+    "lastName": "D",
+    "dateOfBirth": "Fri Apr 01 1999",
+    "gender": "Female",
+    "phone": "123-456-789",
+    "email": "teacherd@gmail.com",
+    "subjectIds": ["2"],
+    "password": "teachera",
+    "roles": ["3"]
+}
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Teacher",
+    "lastName": "E",
+    "dateOfBirth": "Fri Apr 01 1999",
+    "gender": "Male",
+    "phone": "123-456-789",
+    "email": "teacherE@gmail.com",
+    "subjectIds": ["1","2"],
+    "password": "teachere",
+    "roles": ["3"]
+}
+
+###
+DELETE  http://localhost:5000/api/users/c673f975-0d0e-4e04-be52-5bf96c7bb094 HTTP/1.1
+
+###
+PUT http://localhost:5000/api/users/65982c4c-5721-4cd5-9b58-88df3a7a35f2 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Teacher modified",
+    "lastName": "d modified",
+    "dateOfBirth": "Fri Apr 01 1999",
+    "gender": "Female",
+    "phone": "123-456-789",
+    "email": "teacherd@gmail.com",
+    "subjectIds": ["2", "3"]
+}
